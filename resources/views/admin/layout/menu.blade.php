@@ -37,9 +37,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed" href="">
-                <i class="bi bi-person"></i>
-                <span>Roles</span>
+            <a class="nav-link collapsed" href="{{route('about.index')}}">
+                <i class="bi bi-card-text"></i>
+                <span>About</span>
             </a>
         </li>
 {{--    <x-menu/>--}}

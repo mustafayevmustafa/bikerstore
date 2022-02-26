@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
@@ -10,6 +11,7 @@ Route::redirect('/','admin');
 Route::group(["prefix" => "admin"],function(){
     Route::get('/', [HomeController::class, 'index']);
     Route::resource('city', CityController::class);
+    Route::resource('about', AboutController::class);
 });
 
 
