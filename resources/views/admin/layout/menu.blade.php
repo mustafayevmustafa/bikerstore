@@ -48,6 +48,12 @@
                 <span>Service</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('vehicle.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Vehicle</span>
+            </a>
+        </li>
 {{--    <x-menu/>--}}
 
 
