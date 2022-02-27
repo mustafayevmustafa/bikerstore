@@ -18,5 +18,9 @@ Route::group(["prefix" => "admin"],function(){
     Route::resource('vehicle', VehicleController::class);
 });
 
+Route::get('/biker/store',function(){
+    return view('front.index');
+});
+
 
 
