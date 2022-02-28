@@ -5,6 +5,7 @@ use App\Http\Controllers\CityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VehicleController;
+use App\Http\Controllers\Front\HomepageController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -18,9 +19,13 @@ Route::group(["prefix" => "admin"],function(){
     Route::resource('vehicle', VehicleController::class);
 });
 
-Route::get('/biker/store',function(){
-    return view('front.index');
-});
+Route::get('/biker/store', [HomepageController::class, 'index'])->name('front.index');
+Route::get('/biker/ad', [HomepageController::class, 'ad'])->name('front.ad');
+Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
+Route::get('/biker/login', [HomepageController::class, 'login'])->name('front.login');
+Route::get('/biker/register', [HomepageController::class, 'register'])->name('front.register');
+
+
 
 
 
