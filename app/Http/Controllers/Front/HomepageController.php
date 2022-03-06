@@ -14,7 +14,12 @@ class HomepageController extends Controller
 
     public function ad()
     {
-        return view('front.ad');
+        if(Auth::guard('web')->id()){
+            return view('front.ad');    
+        }else{
+            return redirect()->route('login');
+        }
+        
     }
 
     public function listing()

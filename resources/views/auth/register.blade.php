@@ -79,23 +79,23 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">Ad</h4>
-                                    <input type="text" class="form-control font-xssss text-grey-700 mb-3" placeholder="Ad" required>
+                                    <input type="text" name="name" class="form-control font-xssss text-grey-700 mb-3" placeholder="Ad" required>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">Soyad</h4>
-                                    <input type="text" class="form-control font-xssss text-grey-700 mb-3" placeholder="Soyad" required>
+                                    <input type="text" name="surname" class="form-control font-xssss text-grey-700 mb-3" placeholder="Soyad" required>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
                             <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">E-poçt</h4>
-                            <input type="email" class="form-control font-xssss text-grey-700 mb-3" placeholder="example@gmail.com" required>
+                            <input type="email" name="email" class="form-control font-xssss text-grey-700 mb-3" placeholder="example@gmail.com" required>
                         </div>
                         <div class="form-group">
                             <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">Telefon</h4>
-                            <input type="number" class="form-control font-xssss text-grey-700 mb-3" placeholder="994 XX XXX XX XX" required>
+                            <input type="number" name="phone" class="form-control font-xssss text-grey-700 mb-3" placeholder="994 XX XXX XX XX" required>
                         </div>
 
 
@@ -103,13 +103,13 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">Şifrə</h4>
-                                    <input type="password" class="form-control font-xssss text-grey-700 mb-3" placeholder="*********" required>
+                                    <input type="password" name="password" class="form-control font-xssss text-grey-700 mb-3" placeholder="*********" required>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="form-group">
                                     <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">Şifrə Təkrarı</h4>
-                                    <input type="password" class="form-control font-xssss text-grey-700 mb-3" placeholder="*********" required>
+                                    <input type="password" name="password_confirmation" class="form-control font-xssss text-grey-700 mb-3" placeholder="*********" required>
                                 </div>
                             </div>
                         </div>
