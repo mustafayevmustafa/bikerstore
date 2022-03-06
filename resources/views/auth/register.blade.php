@@ -124,7 +124,7 @@
 
                     <span class="font-xsssss ps-1 mt-2 mb-2 text-grey-500 fw-400 text-center">və ya</span>
                     <div class="d-flex justify-content-center">
-                        <a href="#"><img src="{{asset('front/assets/images/facebook.png')}}" width="25" alt=""></a>
+                        <a href="{{url('login/facebook')}}"><img src="{{asset('front/assets/images/facebook.png')}}" width="25" alt=""></a>
                         <span class="px-2 font-xsss d-flex align-items-center text-grey-500 fw-400 text-center">/</span>
                         <a href="#"><img src="{{asset('front/assets/images/google.png')}}" width="25" alt=""></a>
                     </div>

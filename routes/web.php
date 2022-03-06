@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\Front\HomepageController;
+use App\Http\Controllers\Front\SocialController;
 //use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,6 +25,9 @@ Route::get('/admin/login', [AuthController::class, 'index'])->name('admin_login'
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin_login.post');
 Route::get('/logout',[AuthController::class,'logout'])->name('admin.logout');
 
+
+########################  FRONT  #####################################
+
 Route::get('/', [HomepageController::class, 'index'])->name('front.index');
 Route::get('/biker/ad', [HomepageController::class, 'ad'])->name('front.ad');
 Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
@@ -31,6 +35,8 @@ Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('fron
 
 Route::get('/biker/login', [HomepageController::class, 'login'])->name('front.login');
 Route::get('/biker/register', [HomepageController::class, 'register'])->name('front.register');
+Route::get('/login/facebook',[SocialController::class,'facebookRedirect']);
+Route::get('/login/facebook/callback',[SocialController::class,'loginWithFacebook']);
 Route::get('/logout',[HomepageController::class,'logout'])->name('front.logout');
 
 

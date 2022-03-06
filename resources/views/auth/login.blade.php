@@ -92,7 +92,7 @@
                     <hr>
 
                     <span class="font-xsssss ps-1 text-grey-700 fw-400 text-center">Hesabın yoxdursa <a
-                            href="./register.html">Hesab Yarat</a></span>
+                            href="{{route('register')}}">Hesab Yarat</a></span>
 
                     <span class="font-xsssss ps-1 mt-2 mb-2 text-grey-500 fw-400 text-center">və ya</span>
                     <div class="d-flex justify-content-center">
