@@ -5,11 +5,11 @@
 
 <body>
 
-@if(!Route::is('front.login') and !Route::is('front.register'))
+@if(!Route::is('login') and !Route::is('register'))
 @include('front.layout.partials.banner')
 @endif
 
-@if(!Route::is('front.login') and !Route::is('front.register'))
+@if(!Route::is('login') and !Route::is('register'))
 @include('front.layout.partials.header')
 @endif
 
@@ -23,7 +23,7 @@
 @endif
 
 
-@if(!Route::is('front.login') and !Route::is('front.register'))
+@if(!Route::is('login') and !Route::is('register'))
 @include('front.layout.partials.footer')
 @endif
 

@@ -38,10 +38,27 @@
 
         <div class="row header__right">
             <div class="container d-flex align-items-center">
-                <a href="./login.html" class="font-xsss text-grey-900">Giriş</a>
-                <span class="text-current mx-3">|</span>
-                <a href="./register.html" class="font-xsss text-grey-900">Qeydiyyat</a>
-                <a href="./ad.html" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
+                 @if (Route::has('login'))
+                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                    @auth
+                    <li>
+                    <a href="{{ route('front.logout') }}" class="font-xsss text-grey-900">Cixis</a></li>
+                        <a href="./ad.html" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
+                    @else
+                        <a href="{{route('login')}}" class="font-xsss text-grey-900">Giriş</a>
+
+                        @if (Route::has('register'))
+                        <span class="text-current mx-3">|</span>
+                            <a href="{{route('register')}}" class="font-xsss text-grey-900">Qeydiyyat</a>
+                            <a href="./ad.html" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
+                        @endif
+                    @endauth
+                </div>
+            @endif
+                
+                
+                
+                
             </div>
         </div>
     </div>

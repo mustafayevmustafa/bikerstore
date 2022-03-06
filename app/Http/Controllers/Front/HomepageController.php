@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+use Auth;
 class HomepageController extends Controller
 {
     public function index()
@@ -30,5 +30,11 @@ class HomepageController extends Controller
     public function register()
     {
         return view('front.register');
+    }
+
+    public function logout()
+    {
+        Auth::guard('web')->logout();
+        return redirect()->route('front.index');
     }
 }

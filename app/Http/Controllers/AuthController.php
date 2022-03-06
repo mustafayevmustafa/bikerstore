@@ -15,9 +15,15 @@ class AuthController extends Controller
     {
         //dd ($request->all());
         if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])){
-            return redirect()->route('front.index')->with('errors','Parol ve ya sifre sehvdir');
+            return redirect()->route('admin.home')->with('errors','Parol ve ya sifre sehvdir');
         }else{
             return back()->withErrors('Login və ya Parol səhvdir');
         }
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('admin_login');
     }
 }
