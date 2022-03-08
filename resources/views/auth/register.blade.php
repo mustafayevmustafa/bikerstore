@@ -75,6 +75,7 @@
                     <h4 class="mb-4 text-current text-grey-900 fw-600 text-center">Qeydiyyat</h4>
                     <form method="POST" action="{{ route('register') }}">
                     @csrf
+                    
                         <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -113,14 +114,20 @@
                                 </div>
                             </div>
                         </div>
-
+                        <div class="col-6 m-2">
+                            <div class="form-group">
+                                {!! NoCaptcha::renderJs() !!}
+                                {!! NoCaptcha::display() !!}
+                            </div>   
+                        </div>
+                        <br>
                         <button type="submit" class="btn custom__button px-5 mb-2 w-100">Qeydiyyat</button>
                     </form>
 
                     <hr>
 
                     <span class="font-xsssss ps-1 text-grey-900 fw-400 text-center">Hesabın varsa <a
-                            href="./login.html">Giriş et</a></span>
+                            href="{{route('login')}}">Giriş et</a></span>
 
                     <span class="font-xsssss ps-1 mt-2 mb-2 text-grey-500 fw-400 text-center">və ya</span>
                     <div class="d-flex justify-content-center">

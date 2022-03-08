@@ -13,17 +13,25 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::group(["prefix" => "admin"],function(){
-    Route::get('/', [HomeController::class, 'index'])->name('admin.home');
+    
+});
+Route::group(['prefix'=>'admin'],function(){
+    Route::redirect('/','admin/login');
+    Route::group(['middleware' => 'isLogin'],function(){
+        Route::get('/login', [AuthController::class, 'index'])->name('admin_login');
+        Route::post('/login', [AuthController::class, 'login'])->name('admin_login.post');
+});
+    Route::get('/logout',[AuthController::class,'logout'])->name('admin.logout');
+
+    Route::group(['middleware'=>'isAdmin'],function(){
+        Route::get('/', [HomeController::class, 'index'])->name('admin.home');
     
     Route::resource('city', CityController::class);
     Route::resource('about', AboutController::class);
     Route::resource('service', ServiceController::class);
     Route::resource('vehicle', VehicleController::class);
+    });
 });
-
-Route::get('/admin/login', [AuthController::class, 'index'])->name('admin_login');
-Route::post('/admin/login', [AuthController::class, 'login'])->name('admin_login.post');
-Route::get('/logout',[AuthController::class,'logout'])->name('admin.logout');
 
 
 ########################  FRONT  #####################################

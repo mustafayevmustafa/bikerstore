@@ -87,7 +87,7 @@
                     </form>
 
                     <span class="font-xssss ps-1 mt-1 text-grey-500 text-center fw-400">Şifrənizi unutmusunuz ? <a
-                            href="#" class="fw-400">Şifrəni sıfırla</a></span>
+                            href="{{ route('password.request') }}" class="fw-400">Şifrəni sıfırla</a></span>
 
                     <hr>
 
