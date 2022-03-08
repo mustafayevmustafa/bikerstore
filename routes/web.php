@@ -37,6 +37,9 @@ Route::get('/biker/login', [HomepageController::class, 'login'])->name('front.lo
 Route::get('/biker/register', [HomepageController::class, 'register'])->name('front.register');
 Route::get('/login/facebook',[SocialController::class,'facebookRedirect']);
 Route::get('/login/facebook/callback',[SocialController::class,'loginWithFacebook']);
+
+Route::get('/login/google',[SocialController::class,'googleRedirect']);
+Route::get('/login/google/callback',[SocialController::class,'loginWithGoogle']);
 Route::get('/logout',[HomepageController::class,'logout'])->name('front.logout');
 
 
