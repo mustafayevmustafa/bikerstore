@@ -16,5 +16,11 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
         $this->call(UserSeeder::class);
         $this->call(AdminSeeder::class);
+        $this->call(ColorSeeder::class);
+        $this->call(CitySeeder::class);
+        $this->call(FuelSeeder::class);
+        $this->call(MarkaSeeder::class);
+        $this->call(PatternSeeder::class);
+        $this->call(CategorySeeder::class);
     }
 }

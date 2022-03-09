@@ -2,8 +2,14 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
+use App\Http\Controllers\ColorController;
+use App\Http\Controllers\Front\AnnouncementController;
+use App\Http\Controllers\FuelController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MarkaController;
+use App\Http\Controllers\PatternController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\Front\HomepageController;
@@ -15,6 +21,11 @@ Route::group(["prefix" => "admin"],function(){
     Route::get('/', [HomeController::class, 'index'])->name('admin.home');
     
     Route::resource('city', CityController::class);
+    Route::resource('marka', MarkaController::class);
+    Route::resource('pattern', PatternController::class);
+    Route::resource('category', CategoryController::class);
+    Route::resource('color', ColorController::class);
+    Route::resource('fuel', FuelController::class);
     Route::resource('about', AboutController::class);
     Route::resource('service', ServiceController::class);
     Route::resource('vehicle', VehicleController::class);
@@ -25,7 +36,8 @@ Route::post('/admin/login', [AuthController::class, 'login'])->name('admin_login
 Route::get('/logout',[AuthController::class,'logout'])->name('admin.logout');
 
 Route::get('/', [HomepageController::class, 'index'])->name('front.index');
-Route::get('/biker/ad', [HomepageController::class, 'ad'])->name('front.ad');
+Route::get('/biker/announcement', [AnnouncementController::class, 'index'])->name('front.announcement');
+Route::post('/biker/post', [AnnouncementController::class, 'save'])->name('announcement.post');
 Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
 
 

@@ -54,6 +54,36 @@
                 <span>Vehicle</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('marka.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Marka</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('pattern.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Model</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('category.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Category</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('color.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Color</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('fuel.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Yanacaq Növü</span>
+            </a>
+        </li>
 {{--    <x-menu/>--}}
 
 

@@ -5,20 +5,22 @@
     <div class="main-wrapper ad mx-auto mw bg-white px-0 px-md-4">
         <div class="container">
             <div class="row">
-                <form action="">
+                <form action="{{route('announcement.post')}}" method="post">
+                    @csrf
                     <div class="row mt-4">
                         <h2 class="font-lg text-grey-700">Elanınız yeriləşdirin</h2>
                         <hr>
                         <div class="col-12 col-md-6">
                             <div class="row ps-2 ps-md-4">
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
-                                    <label for="marka" class="text-grey-900 font-xsss">Marka <span
+                                    <label for="marka_id" class="text-grey-900 font-xsss">Marka <span
                                             class="text-red">*</span></label>
-                                    <select name="Şəhərlər"
-                                        class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
+                                    <select name="marka_id"
+                                        class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka_id" >
                                         <option value="Bütün Markalar" disabled selected>Marka</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
+                                        @foreach($markas as $marka)
+                                        <option value="{{$marka->marka_id}}">{{$marka->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
@@ -27,8 +29,9 @@
                                     <select name="Şəhərlər"
                                         class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
                                         <option value="Bütün Markalar" disabled selected>Model</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
+                                        @foreach($models as $model)
+                                            <option value="{{$model->id}}">{{$model->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -38,8 +41,9 @@
                                     <select name="Şəhərlər"
                                         class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
                                         <option value="Bütün Markalar" disabled selected>Model</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -48,20 +52,13 @@
                                             class="text-red">*</span></label>
                                     <div class="d-flex flex-row align-items-center w-50">
                                         <input type="text" class="form-control me-2 font-xssss text-grey-700 w-50"
-                                            required>
+                                            >
                                         <div class="d-flex flex-row align-items-center w-50">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    id="flexRadioDefault1" required>
+                                                    id="flexRadioDefault1" >
                                                 <label class="form-check-label font-xssss" for="flexRadioDefault1">
                                                     Km
-                                                </label>
-                                            </div>
-                                            <div class="form-check ms-2">
-                                                <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                    id="flexRadioDefault2" required>
-                                                <label class="form-check-label font-xssss" for="flexRadioDefault2">
-                                                    Mil
                                                 </label>
                                             </div>
                                         </div>
@@ -75,9 +72,10 @@
                                             class="text-red">*</span></label>
                                     <select name="Şəhərlər"
                                         class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
-                                        <option value="Bütün Markalar" disabled selected>Model</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
+                                        <option value="Bütün Markalar" disabled selected>Rəng</option>
+                                        @foreach($colors as $color)
+                                            <option value="{{$color->id}}">{{$color->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
@@ -87,7 +85,7 @@
                                             class="text-red">*</span></label>
                                     <div class="d-flex flex-row align-items-center w-50">
                                         <input type="text" class="form-control me-2 font-xssss text-grey-700 w-75"
-                                            required>
+                                            >
                                         <div class="d-flex flex-row align-items-center w-50">
                                             <select name="price" class="form-select font-xssss text-grey-900"
                                                 id="price">
@@ -111,62 +109,32 @@
                         <div class="col-12 col-md-6">
                             <div class="row ps-2">
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
-                                    <label for="marka" class="text-grey-900 font-xsss">Marka <span
+                                    <label for="marka" class="text-grey-900 font-xsss">Şəhərlər <span
                                             class="text-red">*</span></label>
                                     <select name="Şəhərlər"
                                         class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
-                                        <option value="Bütün Markalar" disabled selected>Marka</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
+                                        <option value="Bütün Markalar" disabled selected>Şəhərlər</option>
+                                        @foreach($cities as $city)
+                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
-                                    <label for="marka" class="text-grey-900 font-xsss">Model <span
+                                    <label for="marka" class="text-grey-900 font-xsss">Yanacaq Növü <span
                                             class="text-red">*</span></label>
                                     <select name="Şəhərlər"
                                         class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
-                                        <option value="Bütün Markalar" disabled selected>Model</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
-                                    </select>
-                                </div>
-
-                                <div class="input__container d-flex justify-content-between mb-2 align-items-center">
-                                    <label for="marka" class="text-grey-900 font-xsss">Marka <span
-                                            class="text-red">*</span></label>
-                                    <select name="Şəhərlər"
-                                        class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
-                                        <option value="Bütün Markalar" disabled selected>Marka</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
-                                    </select>
-                                </div>
-                                <div class="input__container d-flex justify-content-between mb-2 align-items-center">
-                                    <label for="marka" class="text-grey-900 font-xsss">Model <span
-                                            class="text-red">*</span></label>
-                                    <select name="Şəhərlər"
-                                        class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
-                                        <option value="Bütün Markalar" disabled selected>Model</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
-                                    </select>
-                                </div>
-
-                                <div class="input__container d-flex justify-content-between mb-2 align-items-center">
-                                    <label for="marka" class="text-grey-900 font-xsss">Marka <span
-                                            class="text-red">*</span></label>
-                                    <select name="Şəhərlər"
-                                        class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
-                                        <option value="Bütün Markalar" disabled selected>Marka</option>
-                                        <option value="Baku">Default</option>
-                                        <option value="Baku">Default</option>
+                                        <option value="Bütün Markalar" disabled selected>Yanacaq Növü Seçin</option>
+                                        @foreach($fuels as $fuel)
+                                            <option value="{{$fuel->id}}">{{$fuel->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
 
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                                     <label for="marka" class="text-grey-900 font-xsss">Mühərrikin a.g <span
                                             class="text-red">*</span></label>
-                                    <input type="number" class="form-control text-grey-900 font-xssss w-50" required>
+                                    <input type="number" class="form-control text-grey-900 font-xssss w-50" >
                                 </div>
                             </div>
                         </div>
@@ -294,7 +262,7 @@
                             <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                                 <label for="marka" class="text-grey-900 font-xsss">Adınız <span
                                         class="text-red">*</span></label>
-                                <input type="text" class="form-control text-grey-900 font-xssss w-50" required>
+                                <input type="text" class="form-control text-grey-900 font-xssss w-50" >
                             </div>
 
                             <div class="input__container d-flex justify-content-between mb-2 align-items-center">
@@ -311,13 +279,13 @@
                             <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                                 <label for="marka" class="text-grey-900 font-xsss">E-mail <span
                                         class="text-red">*</span></label>
-                                <input type="email" class="form-control text-grey-900 font-xssss w-50" required>
+                                <input type="email" class="form-control text-grey-900 font-xssss w-50" >
                             </div>
 
                             <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                                 <label for="marka" class="text-grey-900 font-xsss">Telefon Nömrəsi <span
                                         class="text-red">*</span></label>
-                                <input type="number" class="form-control text-grey-900 font-xssss w-50" required>
+                                <input type="number" class="form-control text-grey-900 font-xssss w-50" >
                             </div>
                         </div>
                     </div>

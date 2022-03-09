@@ -21,7 +21,7 @@ class CreateBikersTable extends Migration
             $table->string('model')->nullable();
             $table->date('year')->nullable();
             $table->date('listing_date')->nullable();
-            $table->string('fuel_type')->nullable();
+            $table->string('fuel_id')->nullable();
             $table->integer('km')->nullable();
             $table->longText('description')->nullable();
             $table->boolean('credit')->nullable();
@@ -31,7 +31,11 @@ class CreateBikersTable extends Migration
             $table->float('price', 8, 2)->nullable();
             $table->integer('city_id')->nullable();
             $table->integer('vehicle_id')->nullable();
+            $table->integer('marka_id')->nullable();
+            $table->integer('pattern_id')->nullable();
             $table->integer('customer_id')->nullable();
+            $table->integer('category_id')->nullable();
+            $table->integer('color_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
