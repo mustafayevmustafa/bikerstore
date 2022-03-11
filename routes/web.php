@@ -18,9 +18,7 @@ use App\Http\Controllers\Front\SocialController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::group(["prefix" => "admin"],function(){
-    
-});
+
 Route::group(['prefix'=>'admin'],function(){
     Route::redirect('/','admin/login');
     Route::group(['middleware' => 'isLogin'],function(){

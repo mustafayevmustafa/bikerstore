@@ -210,17 +210,14 @@
                     <li>
                         <hr class="dropdown-divider">
                     </li>
-
                     <li>
-                        <a  href="{{ route('logout') }}" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();" class="dropdown-item d-flex align-items-center" >
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('admin.logout') }}">
                             <i class="bi bi-box-arrow-right"></i>
                             <span>Sign Out</span>
                         </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                            @csrf
-                        </form>
                     </li>
+
+                   
 
                 </ul><!-- End Profile Dropdown Items -->
             </li><!-- End Profile Nav -->
