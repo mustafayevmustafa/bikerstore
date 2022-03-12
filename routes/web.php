@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BikerController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\CityController;
 use App\Http\Controllers\ColorController;
@@ -46,10 +47,13 @@ Route::group(['prefix'=>'admin'],function(){
 ########################  FRONT  #####################################
 
 Route::get('/', [HomepageController::class, 'index'])->name('front.index');
-Route::get('/biker/announcement', [AnnouncementController::class, 'index'])->name('front.announcement');
-Route::post('/biker/post', [AnnouncementController::class, 'save'])->name('announcement.post');
-Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
-
+//Route::post('/biker/post', [AnnouncementController::class, 'save'])->name('announcement.post');
+//Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
+Route::group(["prefix" => "biker"],function(){
+    Route::get('/', [HomeController::class, 'index'])->name('admin.home');
+//    Route::get('/', [HomeController::class, 'ad'])->name('admin.home');
+    Route::resource('announcement', \App\Http\Controllers\Front\BikerController::class);
+});
 
 Route::get('/biker/login', [HomepageController::class, 'login'])->name('front.login');
 Route::get('/biker/register', [HomepageController::class, 'register'])->name('front.register');

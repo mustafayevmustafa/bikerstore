@@ -39,11 +39,11 @@ class RegisteredUserController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string', 'max:255'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'g-recaptcha-response' => 'required|captcha',
+//           'g-recaptcha-response' => 'required|captcha',
         ],
-        [
-            'g-recaptcha-response.required' => 'Robot olmadiğini təsdiq et!',
-        ]
+//        [
+//            'g-recaptcha-response.required' => 'Robot olmadiğini təsdiq et!',
+//        ]
     );
 
         $user = User::create([

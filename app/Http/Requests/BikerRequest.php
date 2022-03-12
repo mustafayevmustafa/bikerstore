@@ -23,21 +23,26 @@ class BikerRequest extends FormRequest
      */
     public function rules()
     {
+//        $image = $this->isMethod('POST') ? 'required' : 'nullable';
+
         return [
-//            'description' => 'required|string',
-//            'fuel_id' => 'required|number',
-//            'credit' => 'required|boolean',
-//            'barter' => 'required|boolean',
-//            'hit' => 'required|boolean',
-//            'image' => 'required|string',
-//            'price' => 'required|number',
-//            'city_id' => 'required|number',
-//            'vehicle_id' => 'required|number',
-            'marka_id' => 'required|integer',
-//            'pattern_id' => 'required|number',
-//            'customer_id' => 'required|number',
-//            'category_id' => 'required|number',
-//            'color_id' => 'required|number',
+            'description' => 'string',
+            'fuel_id'     => 'required',
+            'image'       => "mimes:png,jpg,jpeg",
+            'city_id'     => 'required',
+            'km'          => 'required',
+            'marka_id'    => 'required',
+            'price'       => 'required',
+            'pattern_id'  => 'required',
+            'user_id'     => 'nullable',
+            'category_id' => 'required',
+            'color_id'    => 'required',
+            'year'        => 'required',
+            'barter'      => 'nullable|string',
+            'credit'      => 'nullable|string',
+            'contact_name'      => 'nullable|string',
+            'contact_mail'      => 'nullable|string',
+            'contact_phone'      => 'nullable',
         ];
     }
 }

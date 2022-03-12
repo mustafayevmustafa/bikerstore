@@ -11,14 +11,17 @@ use App\Models\Color;
 use App\Models\Fuel;
 use App\Models\Marka;
 use App\Models\Pattern;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Auth;
 class AnnouncementController extends Controller
 {
-    public function index()
+    public function create()
     {
-        return view('front.announcement')->with([
-            'markas' => Marka::get(),
+        return view('front.biker.edit')->with([
+            'action'         => route('announcement.store'),
+            'method'         => null,
+            'markas'         => Marka::get(),
             'models' => Pattern::get(),
             'categories' => Category::get(),
             'colors' => Color::get(),
@@ -28,13 +31,18 @@ class AnnouncementController extends Controller
         ]);
     }
 
-    public function save(BikerRequest $request)
+    public function store(BikerRequest $request): RedirectResponse
     {
+
         $validated = $request->validated();
-        dd($validated);
-        $biker     = Biker::create($validated);
-//        return redirect()->route('front.announcement')
-//            ->with('success', "Announcement  created successfully! ");
+//        $validated['vat_included'] = $request->has('vat_included');
+        $generators = Biker::create($validated);
+//        $generators->movieTypes()->attach($request->input('movie_types'));
+//        $generators->contents()->attach($request->input('contents'));
+//        $generators->weekDays()->attach($request->input('week_days'));
+//        $generators->cinemas()->attach($request->input('cinemas'));
+
+        return redirect()->route('announcement.create')->with('success', "Promo Code Generation created successfully!");
     }
 
 }

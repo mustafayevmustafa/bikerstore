@@ -29,6 +29,11 @@ class MarkaController extends Controller
     public function store(MarkaRequest $request)
     {
         $validated = $request->validated();
+        $image_path = 'marka/' . time() . '.' . $request->file('image')->extension();
+
+        $request->file('image')->storeAs('public', $image_path);
+
+        $validated['image'] = $image_path;
         $marka     = Marka::create($validated);
         return redirect()->route('marka.index')
                          ->with('success', "Marka {$marka->getAttribute('name')} created successfully! ");

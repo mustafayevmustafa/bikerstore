@@ -43,7 +43,7 @@
                     @auth
                     <li>
                     <a href="{{ route('front.logout') }}" class="font-xsss text-grey-900">Cixis</a></li>
-                        <a href="{{route('front.announcement')}}" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
+                        <a href="{{route('announcement.create')}}" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
                     @else
                         <a href="{{route('login')}}" class="font-xsss text-grey-900">Giriş</a>
 
@@ -51,7 +51,7 @@
                         <span class="text-current mx-3">|</span>
                             <a href="{{route('register')}}" class="font-xsss text-grey-900">Qeydiyyat</a>
                             
-                            <a href="{{route('front.announcement')}}" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
+                            <a href="{{route('announcement.create')}}" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
                         @endif
                     @endauth
                 </div>

@@ -5,7 +5,7 @@
     <div class="main-wrapper ad mx-auto mw bg-white px-0 px-md-4">
         <div class="container">
             <div class="row">
-                <form action="{{route('announcement.post')}}" method="post">
+{{--                <form action="{{route('announcement.post')}}" method="post">--}}
                     @csrf
                     <div class="row mt-4">
                         <h2 class="font-lg text-grey-700">Elanınız yeriləşdirin</h2>

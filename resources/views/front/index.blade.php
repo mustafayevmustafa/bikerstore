@@ -61,75 +61,22 @@
                                     </div>
                                 </a>
                             </div>
-
-
-
-
-
                         </div>
                         <div class="mid__menu border shadow-xs pt-3 mb-3">
                             <ul class="ps-3">
+                                @foreach($markas as $marka)
                                 <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Maserati</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Chevrolet</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Ford</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Porsche</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Jeep</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Maserati</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Chevrolet</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Ford</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Porsche</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Jeep</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Maserati</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Chevrolet</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Ford</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Porsche</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Jeep</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Maserati</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Chevrolet</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Ford</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Porsche</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset('front/assets/images/harley.png')}}"> Jeep</a></li>
+                                            src="{{asset("storage/{$marka->getAttribute('image')}")}}"> {{$marka->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
 
                         <h4 class="text-white bg-current-low mb-0 py-1 rounded-top">Şəhərlər</h4>
                         <div class="mid__menu city__names border shadow-xs mb-2">
                             <ul class="ps-3 pt-2">
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Şirvan</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Gəncə</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Masallı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Sumqayıt</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900">Bakı</a></li>
+                                @foreach($cities as $city)
+                                    <li class="lh-18"><a href="" class="font-xsss text-grey-900">{{$city->name}}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -188,9 +135,9 @@
                                     <select name="city" class="col form-select mb-2 font-xsssss text-grey-900 w-100"
                                         id="">
                                         <option value="city" selected>Bütün Şəhərlər</option>
-                                        <option value="USD">Bakı</option>
-                                        <option value="RUB">Şirvan</option>
-                                        <option value="RUB">Gəncə</option>
+                                        @foreach($cities as $city)
+                                           <option value="{{$city->id}}">{{$city->name}}</option>
+                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="row mx-auto mx-md-0">
@@ -209,288 +156,23 @@
                         </div>
                     </div>
                     <div class="card__wrapper">
+                        @foreach($bikers as $biker)
                         <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
                             <span class="wishlist posa">
                                 <i class='bx bx-heart text-current font-xs'></i>
                             </span>
                             <a href="#">
                                 <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
+                                    <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="motorcycle">
                                 </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
+                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">{{$biker->pattern->name}}</span>
+                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">{{$biker->city->name}}</span>
                                 <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
+                                    <span class="ps-2 font-xsss text-grey-700 fw-500">{{$biker->price}} AZN</span>
                                 </div>
                             </a>
                         </div>
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
-
-
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2">
-                            <span class="wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            <a href="#">
-                                <div class="image__container ovh">
-                                    <img src="{{asset('front/assets/images/card.png')}}" alt="motorcycle">
-                                </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">Harley Davidson</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">Bakı</span>
-                                <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">6700 AZN</span>
-                                </div>
-                            </a>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

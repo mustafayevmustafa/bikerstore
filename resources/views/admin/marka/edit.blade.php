@@ -23,6 +23,15 @@
                                 {{ $message }}
                             </p>
                             @enderror
+                        </div><br>
+                        <div class="form-group">
+                            <label for="post-title" class="mb-2">Marka Logo</label><br>
+                            <input type="file" name="image">
+                            @error('name')
+                            <p class="text-danger">
+                                {{ $message }}
+                            </p>
+                            @enderror
                         </div>
                         @if ($action)
                             <button type="submit" class="btn btn-primary mt-3">Save</button>
