@@ -24,7 +24,7 @@ class BikerController extends Controller
      */
     public function index()
     {
-
+        
     }
 
     /**
@@ -35,12 +35,22 @@ class BikerController extends Controller
     public function create()
     {
 
-//        if(Auth::guard('web')->id()){
-//            return view('front.biker.edit');
-//        }else{
-//            return redirect()->route('login');
-//        }
-
+        if(Auth::guard('web')->id()){
+            return view('front.biker.edit')->with([
+            'action'         => route('announcement.store'),
+            'method'         => null,
+            'data'           => new Biker(),
+            'markas'         => Marka::get(),
+            'models'         => Pattern::get(),
+            'categories'     => Category::get(),
+            'colors'         => Color::get(),
+            'cities'         => City::get(),
+            'fuels'          => Fuel::get(),
+        ]);;
+        }else{
+            return redirect()->route('login');
+        }
+        /*
         return view('front.biker.edit')->with([
             'action'         => route('announcement.store'),
             'method'         => null,
@@ -51,7 +61,8 @@ class BikerController extends Controller
             'colors'         => Color::get(),
             'cities'         => City::get(),
             'fuels'          => Fuel::get(),
-        ]);
+        ]); 
+        */
     }
 
     /**

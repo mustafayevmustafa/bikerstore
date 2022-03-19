@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row d-flex flex-column flex-md-row d-md-flex">
             <div class="col-4">
-                <img src="{{asset('front/assets/images/logo.png')}}" width="150" alt="">
+                <a href="/"><img src="{{asset('front/assets/images/logo.png')}}" width="150" alt=""></a>
             </div>
             <div class="col-12 col-md-2 mb-4">
                 <h3 class="text-grey-900 font-xs fw-600">Kurumsal</h3>

@@ -24,7 +24,7 @@
 <div class="lower-header py-2 d-flex align-items-center w-100 bg-white mw mx-auto">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="row header__left">
-            <a href="index.html"><img src="{{asset('front/assets/images/logo.png')}}" width="200" alt=""></a>
+            <a href="/"><img src="{{asset('front/assets/images/logo.png')}}" width="200" alt=""></a>
         </div>
 
         <div class="row header__mid">

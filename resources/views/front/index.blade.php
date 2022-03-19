@@ -161,7 +161,7 @@
                             <span class="wishlist posa">
                                 <i class='bx bx-heart text-current font-xs'></i>
                             </span>
-                            <a href="#">
+                            <a href="{{route('detail')}}">
                                 <div class="image__container ovh">
                                     <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="motorcycle">
                                 </div>

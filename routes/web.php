@@ -12,6 +12,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MarkaController;
 use App\Http\Controllers\PatternController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\Front\SocialController;
@@ -40,6 +41,7 @@ Route::group(['prefix'=>'admin'],function(){
     Route::resource('about', AboutController::class);
     Route::resource('service', ServiceController::class);
     Route::resource('vehicle', VehicleController::class);
+    Route::resource('setting', SettingController::class);
     });
 });
 
@@ -50,7 +52,8 @@ Route::get('/', [HomepageController::class, 'index'])->name('front.index');
 //Route::post('/biker/post', [AnnouncementController::class, 'save'])->name('announcement.post');
 //Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
 Route::group(["prefix" => "biker"],function(){
-    Route::get('/', [HomeController::class, 'index'])->name('admin.home');
+    Route::get('/', [HomeController::class, 'index']);
+    Route::get('/detail', [HomeController::class, 'detail'])->name('detail');
 //    Route::get('/', [HomeController::class, 'ad'])->name('admin.home');
     Route::resource('announcement', \App\Http\Controllers\Front\BikerController::class);
 });

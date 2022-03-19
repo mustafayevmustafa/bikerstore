@@ -60,6 +60,13 @@ class MarkaController extends Controller
     public function update(MarkaRequest $request, Marka $marka)
     {
         $validate = $request->validated();
+        if($request->hasFile('image')){
+            $image_path = 'marka/' . time() . '.' . $request->file('image')->extension();
+
+            $request->file('image')->storeAs('public', $image_path);
+
+            $validate['image'] = $image_path;
+        }
         $marka->update($validate);
 
         return redirect()->route('marka.index')

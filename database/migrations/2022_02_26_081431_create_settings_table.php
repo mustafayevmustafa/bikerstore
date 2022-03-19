@@ -20,7 +20,10 @@ class CreateSettingsTable extends Migration
             $table->string('site_url')->nullable();
             $table->string('address')->nullable();
             $table->string('email')->unique()->nullable();
-            $table->integer('mobile')->nullable();
+            $table->string('mobile')->nullable();
+            $table->text('description')->nullable();
+            $table->text('keywords')->nullable();
+            $table->text('author')->nullable();
             $table->timestamps();
         });
     }
