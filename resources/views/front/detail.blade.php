@@ -10,28 +10,28 @@
                         <span class="wishlist posa">
                             <i class='bx bx-heart text-current font-md'></i>
                         </span>
-                        <img src="./assets/images/detail.jpg" alt="" class="detail__img w-100 rounded rounded-2">
+                        <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="" class="detail__img w-100 rounded rounded-2">
                     </div>
                     <div class="more__detail">
                         <div class="row py-3 ovh w-100 ms-0">
                             <div class="font-xss row ps-1 text-grey-900 pb-2 border-bottom mb-3 ovh">
                                 <span class="col-6">Şəhər:</span>
-                                <span class="col-6">Bakı</span>
+                                <span class="col-6">{{$biker->city->name}}</span>
                             </div>
 
                             <div class="font-xss row ps-1 text-grey-900 pb-2 border-bottom mb-3 ovh">
                                 <span class="col-6">Marka:</span>
-                                <span class="col-6">Yamaha</span>
+                                <span class="col-6">{{$biker->marka->name}}</span>
                             </div>
 
                             <div class="font-xss row ps-1 text-grey-900 pb-2 border-bottom mb-3 ovh">
                                 <span class="col-6">Model:</span>
-                                <span class="col-6">FZ1</span>
+                                <span class="col-6">{{$biker->pattern->name}}</span>
                             </div>
 
                             <div class="font-xss row ps-1 text-grey-900 pb-2 border-bottom mb-3 ovh">
                                 <span class="col-6">Rəng:</span>
-                                <span class="col-6">Qəhvəyi</span>
+                                <span class="col-6">{{$biker->color->name}}</span>
                             </div>
 
                             <div class="font-xss row ps-1 text-grey-900 pb-2 border-bottom mb-3 ovh">
@@ -55,20 +55,15 @@
                 <div class="col-lg-5 text-white">
                     <div class="ad__detail d-flex flex-column justify-content-between">
                         <div class="detail__info">
-                            <h2 class="text-grey-900 font-xxl">Elektrikli Motorsiklet</h2>
-                            <p class="font-xssss text-grey-600">Lorem ipsum dolor sit amet consectetur adipisicing
-                                elit.
-                                Voluptatem hic placeat pariatur inventore eaque voluptatibus vero odio?
-                                Eius deleniti necessitatibus voluptate totam.
-                                Deserunt amet ipsam tempore, dicta animi commodi hic asperiores,
-                                sequi ullam fugit eveniet, accusantium inventore maiores. Soluta, alias.
+                            <h2 class="text-grey-900 font-xxl">{{$biker->marka->name}}</h2>
+                            <p class="font-xssss text-grey-600">{{$biker->description}}
                             </p>
 
                             <div class="w-100 d-flex justify-content-between align-items-center">
-                                <span class="text-current font-lg fw-500">4100₼</span>
+                                <span class="text-current font-lg fw-500">{{$biker->price}}₼</span>
                                 <span class="text-grey-700 d-flex align-items-center">
                                     <i class='bx bx-mobile-alt font-sm me-1'></i>
-                                    <span class="font-xsss">(070) 328-72-12</span>
+                                    <span class="font-xsss">{{$biker->contact_phone}}</span>
                                 </span>
                             </div>
                         </div>

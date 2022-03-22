@@ -25,8 +25,10 @@
                             @enderror
                         </div><br>
                         <div class="form-group">
+                            @if(Route::is('marka.edit'))
                             @if($data->getAttribute('image'))
                                 <img width="200" height="200" src="{{asset("storage/{$data->getAttribute('image')}")}}" alt="">
+                            @endif
                             @endif
                             <label for="post-title" class="mb-2">Marka Logo</label><br>
                             <input type="file" name="image">

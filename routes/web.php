@@ -52,8 +52,8 @@ Route::get('/', [HomepageController::class, 'index'])->name('front.index');
 //Route::post('/biker/post', [AnnouncementController::class, 'save'])->name('announcement.post');
 //Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
 Route::group(["prefix" => "biker"],function(){
-    Route::get('/', [HomeController::class, 'index']);
-    Route::get('/detail', [HomeController::class, 'detail'])->name('detail');
+    Route::get('/', [HomepageController::class, 'index']);
+    Route::get('/detail/{id}', [HomepageController::class, 'detail'])->name('detail');
 //    Route::get('/', [HomeController::class, 'ad'])->name('admin.home');
     Route::resource('announcement', \App\Http\Controllers\Front\BikerController::class);
 });

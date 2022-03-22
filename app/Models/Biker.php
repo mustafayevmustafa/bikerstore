@@ -43,6 +43,11 @@ class Biker extends Model
         return $this->belongsTo(Marka::class);
     }
 
+    public function color()
+    {
+        return $this->belongsTo(Color::class);
+    }
+
     public function city()
     {
         return $this->belongsTo(City::class);

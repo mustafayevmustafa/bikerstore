@@ -6,6 +6,11 @@
         <div class="container">
             <div class="row">
                 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
+                    @if(session('success'))
+                    <div class="alert alert-success">
+                        {{session('success')}}
+                    </div>
+                    @endif
                     @csrf @method($method)
                     <div class="row mt-4">
                         <h2 class="font-lg text-grey-700">Elanınız yeriləşdirin</h2>

@@ -95,6 +95,11 @@
                             @enderror
                         </div>
                         <div class="form-group">
+                            @if(Route::is('setting.edit'))
+                            @if($data->getAttribute('site_logo'))
+                                <img width="200" height="200" src="{{asset("storage/{$data->getAttribute('site_logo')}")}}" alt="">
+                            @endif
+                            @endif
                             <label for="post-title" class="mb-2">Site Logo</label><br>
                             <input type="file" name="site_logo">
                             @error('site_logo')

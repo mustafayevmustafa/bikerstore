@@ -28,6 +28,13 @@ class HomepageController extends Controller
         }
     }
 
+    public function detail($id)
+    {
+        
+        $biker = Biker::find($id);
+        return view('front.detail',compact('biker'));
+    }
+
     public function listing()
     {
         return view('front.listing');

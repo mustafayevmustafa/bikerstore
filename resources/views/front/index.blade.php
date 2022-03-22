@@ -3,6 +3,11 @@
 <!-- MAIN WRAPPER -->
 
     <div class="main-wrapper mx-auto mw bg-white">
+        @if(session('success'))
+        <div class="alert alert-success">
+            {{session('success')}}
+        </div>
+        @endif
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 text-white">
@@ -161,7 +166,7 @@
                             <span class="wishlist posa">
                                 <i class='bx bx-heart text-current font-xs'></i>
                             </span>
-                            <a href="{{route('detail')}}">
+                            <a href="{{route('detail',$biker->id)}}">
                                 <div class="image__container ovh">
                                     <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="motorcycle">
                                 </div>

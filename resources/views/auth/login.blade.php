@@ -71,6 +71,18 @@
                 <div class="login__card d-flex flex-column shadow-sm pt-3 pb-4 px-3">
                     <h4 class="mb-4 text-current text-grey-900 fw-600 text-center">Giriş</h4>
                      <form method="POST" action="{{ route('login') }}">
+                         @if($errors->any())
+                    <div class="alert alert-danger">
+                      <ul>
+                    @foreach($errors->all() as $error)
+                    <li> <x-auth-validation-errors class="mb-4" :errors="$errors" /></li>
+                      @endforeach
+                      </ul>
+                    </div>
+                      @endif
+        
+                           
+                        
                         @csrf
                         <div class="form-group">
                             <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">E-poçt</h4>

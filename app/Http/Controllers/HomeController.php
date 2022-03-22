@@ -9,12 +9,9 @@ class HomeController extends Controller
    
     public function index()
     {
-        $markas = Marka::get();
-        return view('admin.index',compact('markas'));
+        
+        return view('admin.index');
     }
 
-    public function detail()
-    {
-        return view('front.detail');
-    }
+    
 }
