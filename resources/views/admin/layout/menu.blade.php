@@ -84,6 +84,12 @@
                 <span>Yanacaq Növü</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('reklam.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Reklam</span>
+            </a>
+        </li>
 {{--    <x-menu/>--}}
 
 

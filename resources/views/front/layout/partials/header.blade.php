@@ -26,7 +26,7 @@
         <div class="row header__left">
             <a href="/"><img src="{{asset('front/assets/images/logo.png')}}" width="200" alt=""></a>
         </div>
-
+        @if(!Route::is('detail') and !Route::is('announcement.create'))
         <div class="row header__mid">
             <form action="" class="d-flex justify-content-start align-items-center ms-3">
                 <input type="text" class="font-xsss" id="search__input" placeholder="Bir Şeylər Axtarın . . .">
@@ -35,6 +35,7 @@
                 </label>
             </form>
         </div>
+        @endif
 
         <div class="row header__right">
             <div class="container d-flex align-items-center">

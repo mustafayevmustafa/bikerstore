@@ -23,5 +23,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PatternSeeder::class);
         $this->call(CategorySeeder::class);
         $this->call(SettingSeeder::class);
+        $this->call(ReklamSeeder::class);
     }
 }

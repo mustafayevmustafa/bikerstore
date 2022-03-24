@@ -1,5 +1,6 @@
 <!-- BANNER -->
 <div class="banner container-fluid ovh">
-    <img src="{{asset('front/assets/images/topdesk.jpg')}}" alt="">
+    <img src="{{asset("storage/{$reklam->getAttribute('image')}")}}" alt="">
 </div>
+
 <!-- BANNER -->
