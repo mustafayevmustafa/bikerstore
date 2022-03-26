@@ -24,6 +24,7 @@ class HomepageController extends Controller
     public function ad()
     {
         if(Auth::guard('web')->id()){
+            //$reklam = Reklam::first();
             return view('front.biker.edit');
         }else{
             return redirect()->route('login');
@@ -34,7 +35,8 @@ class HomepageController extends Controller
     {
         
         $biker = Biker::find($id);
-        return view('front.detail',compact('biker'));
+        $reklam = Reklam::first();
+        return view('front.detail',compact('biker','reklam'));
     }
 
     public function listing()

@@ -61,7 +61,7 @@ class SocialController extends Controller
             $new_user->password = bcrypt(12345678);
             $new_user->save();
             Auth::login($new_user);
-            return redirect('/');
+            return redirect('/')->with('success',Auth::user()->name.' xos geldiniz');;
         }
     }
 }

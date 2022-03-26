@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-3 mt-4">
-                        <a class="btn btn-outline-success" href="{{route('reklam.create')}}">Marka Add</a>
+                        <a class="btn btn-outline-success" href="{{route('reklam.create')}}">Reklam Add</a>
                     </div>
                     @if (session('success'))
                         <div class="alert alert-success mt-2">

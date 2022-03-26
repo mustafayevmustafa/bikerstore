@@ -10,6 +10,7 @@ use App\Models\City;
 use App\Models\Color;
 use App\Models\Fuel;
 use App\Models\Marka;
+use App\Models\Reklam;
 use App\Models\Pattern;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -46,6 +47,7 @@ class BikerController extends Controller
             'colors'         => Color::get(),
             'cities'         => City::get(),
             'fuels'          => Fuel::get(),
+            'reklam'         => Reklam::first()
         ]);;
         }else{
             return redirect()->route('login');

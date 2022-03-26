@@ -11,6 +11,7 @@ use App\Models\Color;
 use App\Models\Fuel;
 use App\Models\Marka;
 use App\Models\Pattern;
+use App\Models\Reklam;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Auth;
@@ -28,6 +29,7 @@ class AnnouncementController extends Controller
             'cities' => City::get(),
             'fuels' => Fuel::get(),
             'biker' => Biker::all(),
+            'reklam' => Reklam::first()
         ]);
     }
 
