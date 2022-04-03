@@ -25,7 +25,9 @@
                             @enderror
                         </div><br>
 
+                        @if(!Route::is('reklam.create'))
                         <input type="hidden" name="old_image" value="{{$data->getAttribute('image')}}">
+                        @endif
                         <div class="form-group">
                             <label for="post-title" class="mb-2">Content</label>
                             <input type="text" value="{{ optional($data)->getAttribute('content') }}" @if(!$action)  disabled @endif name="content" class="form-control" id="city-name" placeholder="Content insert">

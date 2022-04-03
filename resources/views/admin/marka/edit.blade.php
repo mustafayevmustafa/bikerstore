@@ -24,7 +24,7 @@
                             </p>
                             @enderror
                         </div><br>
-                        <input type="hidden" name="old_image" value="{{$data->getAttribute('image')}}">
+                        <input type="hidden" name="old_image" value="{{optional($data)->getAttribute('image')}}">
                         <div class="form-group">
                             @if(Route::is('marka.edit'))
                             @if($data->getAttribute('image'))

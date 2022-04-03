@@ -27,15 +27,15 @@
                         @if(!Route::is('ban.create'))
                         <input type="hidden" name="old_image" value="{{$data->getAttribute('image')}}">
                         @endif
-                        <div class="form-group">
-                            <label for="post-title" class="mb-2">Slug</label>
-                            <input type="text" value="{{ optional($data)->getAttribute('slug') }}" @if(!$action)  disabled @endif name="slug" class="form-control" id="city-name" placeholder="Slug insert">
-                            @error('slug')
-                            <p class="text-danger">
-                                {{ $message }}
-                            </p>
-                            @enderror
-                        </div><br>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="post-title" class="mb-2">Slug</label>--}}
+{{--                            <input type="text" value="{{ optional($data)->getAttribute('slug') }}" @if(!$action)  disabled @endif name="slug" class="form-control" id="city-name" placeholder="Slug insert">--}}
+{{--                            @error('slug')--}}
+{{--                            <p class="text-danger">--}}
+{{--                                {{ $message }}--}}
+{{--                            </p>--}}
+{{--                            @enderror--}}
+{{--                        </div><br>--}}
                       
                         <div class="form-group">
                             @if(Route::is('ban.edit'))

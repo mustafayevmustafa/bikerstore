@@ -25,7 +25,7 @@ class MarkaRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'image' => 'nullable'
+            'image' => 'required|mimes:png,jpeg,jpg'
         ];
     }
 }

@@ -24,7 +24,8 @@ class BanRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name' => 'required|string',
+            'image' => 'nullable'
         ];
     }
 }
