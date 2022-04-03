@@ -96,6 +96,12 @@
                 <span>Reklam</span>
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('ban.index')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Ban</span>
+            </a>
+        </li>
 {{--    <x-menu/>--}}
 
 

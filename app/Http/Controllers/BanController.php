@@ -16,7 +16,9 @@ class BanController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.ban.index')->with([
+            'bans' => Ban::paginate(10)
+        ]);
     }
 
     /**
@@ -26,7 +28,11 @@ class BanController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.ban.edit')->with([
+            'action' => route('ban.store'),
+            'method' => null,
+            'data'   => null,
+        ]);
     }
 
     /**
@@ -35,9 +41,16 @@ class BanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BanRequest $request)
     {
-        //
+        $validated = $request->validated();
+        $image_path = 'ban/' . time() . '.' . $request->file('image')->extension();
+
+        $request->file('image')->storeAs('public', $image_path);
+
+        $validated['image'] = $image_path;
+        Ban::create($validated);
+        return redirect()->route('ban.index')->with('success','Ban has been created successfully');
     }
 
     /**
@@ -46,9 +59,13 @@ class BanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Ban $ban)
     {
-        //
+        return view('admin.ban.edit')->with([
+            'method' => null,
+            'action' => null,
+            'data'   => $ban 
+        ]);
     }
 
     /**
@@ -57,9 +74,13 @@ class BanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Ban $ban)
     {
-        //
+        return view('admin.ban.edit')->with([
+            'action' => route('ban.update',$ban),
+            'method' => 'PUT',
+            'data'   => $ban
+        ]);
     }
 
     /**
@@ -69,9 +90,31 @@ class BanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BanRequest $request, Ban $ban)
     {
-        //
+        $validate = $request->validated();
+        
+        $old_image = $request->old_image;
+        
+        
+        if($request->hasFile('image')){
+            $image_path = 'ban/' . time() . '.' . $request->file('image')->extension();
+
+            $request->file('image')->storeAs('public', $image_path);
+
+           $validate['image'] = $image_path;
+            
+            
+            Storage::disk('public')->delete($old_image);
+            $ban->update($validate);
+            return redirect()->route('ban.index')->with('success','Item has been updated successfully');
+        }else{
+            $ban->update([
+                'name'   => $request->name,
+                'slug' => $request->slug,
+            ]);
+            return redirect()->route('ban.index')->with('success','Item has been updated successfully');
+        }
     }
 
     /**
@@ -80,8 +123,10 @@ class BanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Ban $ban)
     {
-        //
+        $ban->delete();
+        return redirect()->route('ban.index')
+            ->withSuccess(__('Ban delete successfully.'));
     }
 }
