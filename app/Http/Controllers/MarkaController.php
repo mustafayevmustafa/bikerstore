@@ -83,9 +83,12 @@ class MarkaController extends Controller
 
     }
 
-    public function destroy(Marka $marka)
+    public function destroy($id)
     {
-        $marka->delete();
+        $image = Marka::find($id);
+        $old_image = $image->image;
+        Storage::disk('public')->delete($old_image);
+        Marka::find($id)->delete();
         return redirect()->route('marka.index')
             ->withSuccess(__('Marka delete successfully.'));
     }

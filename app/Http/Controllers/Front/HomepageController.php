@@ -7,6 +7,7 @@ use App\Models\Biker;
 use App\Models\City;
 use App\Models\Marka;
 use App\Models\Reklam;
+use App\Models\Ban;
 use Illuminate\Http\Request;
 use Auth;
 class HomepageController extends Controller
@@ -17,7 +18,8 @@ class HomepageController extends Controller
             'bikers'   => Biker::get(),
             'cities'   => City::get(),
             'markas'   => Marka::get(),
-            'reklam'   => Reklam::first()
+            'reklam'   => Reklam::first(),
+            'bans'      => Ban::get()
         ]);
     }
 

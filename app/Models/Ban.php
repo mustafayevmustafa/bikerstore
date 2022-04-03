@@ -9,12 +9,15 @@ use Illuminate\Support\Str;
 class Ban extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = ['name','slug','image'];
 
     protected static function boot() {
         parent::boot();
 
         static::creating(function ($ban) {
+            $ban->slug = Str::slug($ban->name);
+        });
+        static::updating(function ($ban) {
             $ban->slug = Str::slug($ban->name);
         });
     }

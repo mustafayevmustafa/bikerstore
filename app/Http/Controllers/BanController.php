@@ -123,9 +123,12 @@ class BanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Ban $ban)
+    public function destroy($id)
     {
-        $ban->delete();
+        $image = Ban::find($id);
+        $old_image = $image->image;
+        Storage::disk('public')->delete($old_image);
+        Ban::find($id)->delete();
         return redirect()->route('ban.index')
             ->withSuccess(__('Ban delete successfully.'));
     }

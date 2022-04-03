@@ -14,58 +14,21 @@
                     <div class="row px-2">
                         <div class="bottom__menu mb-3 border py-2 px-4 shadow-xs rounded">
                             <div class="row my-2">
+                                @foreach($bans as $ban)
                                 <a href="#" class="col-6 text-grey-900 d-flex justify-content-center">
                                     <div
                                         class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <i class='bx bxs-car font-lg'></i>
-                                        <span class="font-xsss">Moto</span>
+                                        <img class="menu__icon" width="25" height="25"
+                                            src="{{asset("storage/{$ban->getAttribute('image')}")}}">
+                                        <span class="font-xsss">{{$ban->name}}</span>
                                     </div>
                                 </a>
-
-                                <a href="#" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <i class='bx bxs-car font-lg'></i>
-                                        <span class="font-xsss">Kamyonet</span>
-                                    </div>
-                                </a>
+                                @endforeach
                             </div>
 
-                            <div class="row my-2">
-                                <a href="#" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <i class='bx bxs-car font-lg'></i>
-                                        <span class="font-xsss">Kamyonet</span>
-                                    </div>
-                                </a>
+                         
 
-                                <a href="#" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <i class='bx bxs-car font-lg'></i>
-                                        <span class="font-xsss">Kamyonet</span>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="row my-2">
-                                <a href="#" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <i class='bx bxs-car font-lg'></i>
-                                        <span class="font-xsss">Kamyonet</span>
-                                    </div>
-                                </a>
-
-                                <a href="#" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <i class='bx bxs-car font-lg'></i>
-                                        <span class="font-xsss">Kamyonet</span>
-                                    </div>
-                                </a>
-                            </div>
+                         
                         </div>
                         <div class="mid__menu border shadow-xs pt-3 mb-3">
                             <ul class="ps-3">

@@ -126,9 +126,12 @@ class ReklamController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Reklam $reklam)
+    public function destroy($id)
     {
-        $reklam->delete();
+        $image = Reklam::find($id);
+        $old_image = $image->image;
+        Storage::disk('public')->delete($old_image);
+        Reklam::find($id)->delete();
         return redirect()->route('reklam.index')
             ->withSuccess(__('Reklam delete successfully.'));
     }
