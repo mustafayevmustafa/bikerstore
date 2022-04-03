@@ -11,7 +11,7 @@
                         @if (is_null($action))
                             <a style="height:46px;margin-top:10px;" class="btn btn-outline-primary" href="{{route('setting.edit', $data)}}">Edit</a>
                         @endif
-                        
+
                     </div>
                     <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
                         @csrf @method($method)
@@ -94,6 +94,7 @@
                             </p>
                             @enderror
                         </div>
+                        <input type="hidden" name="old_image" value="{{$data->getAttribute('site_logo')}}">
                         <div class="form-group">
                             @if(Route::is('setting.edit'))
                             @if($data->getAttribute('site_logo'))
@@ -116,5 +117,5 @@
             </div>
         </div>
     </div>
-    
+
 @endsection

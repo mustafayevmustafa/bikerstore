@@ -26,7 +26,7 @@
         <div class="row header__left">
             <a href="/"><img src="{{asset('front/assets/images/logo.png')}}" width="200" alt=""></a>
         </div>
-        @if(!Route::is('detail') and !Route::is('announcement.create'))
+        @if(Route::is('front.index'))
         <div class="row header__mid">
             <form action="" class="d-flex justify-content-start align-items-center ms-3">
                 <input type="text" class="font-xsss" id="search__input" placeholder="Bir Şeylər Axtarın . . .">
@@ -42,27 +42,24 @@
                  @if (Route::has('login'))
                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                     @auth
-                    <li>
-                    <a href="{{ route('front.logout') }}" class="font-xsss text-grey-900">Cixis</a></li>
+                    <a href="{{route('front.profile')}}" class="font-xsss text-grey-900">Profile</a>
+                   <span class="text-current mx-3">|</span>
+                    <a href="{{ route('front.logout') }}" class="font-xsss text-grey-900">Cixis</a>
                         <a href="{{route('announcement.create')}}" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
                     @else
                         <a href="{{route('login')}}" class="font-xsss text-grey-900">Giriş</a>
-
-                        @if (Route::has('register'))
                         <span class="text-current mx-3">|</span>
                             <a href="{{route('register')}}" class="font-xsss text-grey-900">Qeydiyyat</a>
-                            
                             <a href="{{route('announcement.create')}}" class="btn font-xsss px-3 ms-3 custom__button">Pulsuz Elan</a>
-                        @endif
                     @endauth
                 </div>
             @endif
-                
-                
-                
-                
             </div>
         </div>
+        <!-- mobile toggle -->
+                <span class="mobile__menu__toggle d-block d-md-none mobile__toggle font-xl text-current">
+                    <i class='bx bx-menu-alt-right'></i>
+                </span>
     </div>
 </div>
 <!-- HEADERS -->

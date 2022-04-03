@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Http\Requests\ReklamRequest;
 use App\Models\Reklam;
+//use Illuminate\Support\Facades\File;
 class ReklamController extends Controller
 {
     /**
@@ -62,7 +63,7 @@ class ReklamController extends Controller
         return view('admin.reklam.edit')->with([
             'method' => null,
             'action' => null,
-            'data'   => $reklam 
+            'data'   => $reklam
         ]);
     }
 
@@ -90,16 +91,33 @@ class ReklamController extends Controller
      */
     public function update(ReklamRequest $request, Reklam $reklam)
     {
+
         $validate = $request->validated();
+        $old_image = $request->old_image;
+
+
         if($request->hasFile('image')){
             $image_path = 'reklam/' . time() . '.' . $request->file('image')->extension();
 
             $request->file('image')->storeAs('public', $image_path);
 
-            $validate['image'] = $image_path;
+           $image = $validate['image'] = $image_path;
+
+
+            Storage::disk('public')->delete($old_image);
+            $reklam->update($validate);
+            return redirect()->route('reklam.index')->with('success','Item has been updated successfully');
+        }else{
+            $reklam->update([
+                'title'   => $request->title,
+                'content' => $request->content,
+                'link'    => $request->link
+            ]);
+            return redirect()->route('reklam.index')->with('success','Item has been updated successfully');
         }
-        $reklam->update($validate);
-        return redirect()->route('reklam.index')->with('success','Item has been updated successfully');
+
+
+
     }
 
     /**

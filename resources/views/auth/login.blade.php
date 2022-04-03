@@ -64,7 +64,7 @@
         <div class="container min-vh-100">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center align-items-center">
-                    <a href="./index.html"><img src="{{asset('front/assets/images/logo.png')}}" width="250"></a>
+                    <a href="{{route('front.index')}}"><img src="{{asset('front/assets/images/logo.png')}}" width="250"></a>
                 </div>
             </div>
             <div class="row d-flex justify-content-center align-items-center">
@@ -80,9 +80,9 @@
                       </ul>
                     </div>
                       @endif
-        
-                           
-                        
+
+
+
                         @csrf
                         <div class="form-group">
                             <h4 class="font-xsss ps-1 mb-2 text-grey-900 fw-400">E-poçt</h4>
@@ -108,9 +108,9 @@
 
                     <span class="font-xsssss ps-1 mt-2 mb-2 text-grey-500 fw-400 text-center">və ya</span>
                     <div class="d-flex justify-content-center">
-                        <a href="#"><img src="{{asset('front/assets/images/facebook.png')}}" width="25" alt=""></a>
+                        <a href="{{url('login/facebook')}}"><img src="{{asset('front/assets/images/facebook.png')}}" width="25" alt=""></a>
                         <span class="px-2 font-xsss d-flex align-items-center text-grey-500 fw-400 text-center">/</span>
-                        <a href="#"><img src="{{asset('front/assets/images/google.png')}}" width="25" alt=""></a>
+                        <a href="{{url('login/google')}}"><img src="{{asset('front/assets/images/google.png')}}" width="25" alt=""></a>
                     </div>
                 </div>
             </div>

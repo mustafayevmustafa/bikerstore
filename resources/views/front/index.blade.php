@@ -18,7 +18,7 @@
                                     <div
                                         class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
                                         <i class='bx bxs-car font-lg'></i>
-                                        <span class="font-xsss">Kamyonet</span>
+                                        <span class="font-xsss">Moto</span>
                                     </div>
                                 </a>
 

@@ -43,6 +43,12 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link collapsed" href="{{route('admin.user')}}">
+                <i class="bi bi-app-indicator"></i>
+                <span>Users</span>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link collapsed" href="{{route('service.index')}}">
                 <i class="bi bi-menu-app-fill"></i>
                 <span>Service</span>

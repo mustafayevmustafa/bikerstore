@@ -67,7 +67,7 @@
         <div class="container min-vh-100 pb-5">
             <div class="row">
                 <div class="col-12 d-flex justify-content-center align-items-center">
-                    <a href="./index.html"><img src="{{asset('front/assets/images/logo.png')}}" width="250"></a>
+                    <a href="{{route('front.index')}}"><img src="{{asset('front/assets/images/logo.png')}}" width="250"></a>
                 </div>
             </div>
             <div class="row d-flex justify-content-center align-items-center">
@@ -122,11 +122,12 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-6 m-2">
                             <div class="form-group">
                                 {!! NoCaptcha::renderJs() !!}
                                 {!! NoCaptcha::display() !!}
-                            </div>   
+                            </div>
                         </div>
                         <br>
                         <button type="submit" class="btn custom__button px-5 mb-2 w-100">Qeydiyyat</button>

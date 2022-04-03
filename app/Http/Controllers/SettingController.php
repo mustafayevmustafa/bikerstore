@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Models\Setting;
 use App\Http\Requests\SettingRequest;
@@ -46,7 +47,7 @@ class SettingController extends Controller
      */
     public function show($id)
     {
-        
+
     }
 
     /**
@@ -74,17 +75,34 @@ class SettingController extends Controller
     public function update(SettingRequest $request, Setting $setting)
     {
         $validate = $request->validated();
+        $old_image = $request->old_image;
         if($request->hasFile('site_logo')){
             $image_path = 'site_logo/' . time() . '.' . $request->file('site_logo')->extension();
 
             $request->file('site_logo')->storeAs('public', $image_path);
 
             $validate['site_logo'] = $image_path;
-        }
-        $setting->update($validate);
-
-        return redirect()->route('setting.edit',$setting)
+            Storage::disk('public')->delete($old_image);
+            $setting->update($validate);
+            return redirect()->route('setting.edit',$setting)
             ->with('success', "Setting updated");
+        }else{
+            $setting->update([
+                'site_title'  => $request->site_title,
+                'site_url'    => $request->site_url,
+                'address'     => $request->address,
+                'email'       => $request->email,
+                'mobile'      => $request->mobile,
+                'description' => $request->description,
+                'keywords'    => $request->keywords,
+                'author'      => $request->author
+            ]);
+            return redirect()->route('setting.edit',$setting)
+            ->with('success', "Setting updated");
+        }
+
+
+
     }
 
     /**

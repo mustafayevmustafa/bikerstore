@@ -7,6 +7,7 @@ use App\Http\Requests\MarkaRequest;
 use App\Models\City;
 use App\Models\Marka;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MarkaController extends Controller
 {
@@ -60,17 +61,26 @@ class MarkaController extends Controller
     public function update(MarkaRequest $request, Marka $marka)
     {
         $validate = $request->validated();
+        $old_image = $request->old_image;
         if($request->hasFile('image')){
             $image_path = 'marka/' . time() . '.' . $request->file('image')->extension();
 
             $request->file('image')->storeAs('public', $image_path);
 
             $validate['image'] = $image_path;
-        }
-        $marka->update($validate);
-
-        return redirect()->route('marka.index')
+            Storage::disk('public')->delete($old_image);
+            $marka->update($validate);
+            return redirect()->route('marka.index')
                          ->with('success', "Marka {$marka->getAttribute('name')} updated");
+        }else{
+            $marka->update([
+                'name' => $request->name
+            ]);
+            return redirect()->route('marka.index')
+                         ->with('success', "Marka {$marka->getAttribute('name')} updated");
+        }
+
+
     }
 
     public function destroy(Marka $marka)

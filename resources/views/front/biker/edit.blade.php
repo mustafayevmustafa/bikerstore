@@ -235,21 +235,21 @@
                         <div class="upload__image mx-auto py-2">
                             <!-- YÜKLƏNƏN ŞƏKİLLƏR -->
                             <div class="ad__image posr">
-                                <img src="./assets/images/login.jpg" alt="">
+                                <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                             </div>
 
                             <div class="ad__image posr">
-                                <img src="./assets/images/login.jpg" alt="">
+                                <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                                 <button type="button" class="main__photo custom__button btn font-xsssss posa">Əsas Şəkil</button>
                             </div>
 
                             <div class="ad__image posr">
-                                <img src="./assets/images/login.jpg" alt="">
+                                <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                                 <button type="button" class="main__photo custom__button btn font-xsssss posa">Əsas Şəkil</button>
                             </div>
 
                             <div class="ad__image posr">
-                                <img src="./assets/images/login.jpg" alt="">
+                                <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                                 <button type="button" class="main__photo custom__button btn font-xsssss posa">Əsas Şəkil</button>
                             </div>
 
@@ -272,19 +272,19 @@
                     <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                         <label for="contact_name" class="text-grey-900 font-xsss">Adınız <span
                                     class="text-red">*</span></label>
-                        <input type="text" name="contact_name" class="form-control text-grey-900 font-xssss w-50" >
+                        <input disabled value="{{Auth::user()->name}}" type="text" name="contact_name" class="form-control text-grey-900 font-xssss w-50" >
                     </div>
 
                     <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                         <label for="contact_mail" class="text-grey-900 font-xsss">E-mail <span
                                     class="text-red">*</span></label>
-                        <input type="email" name="contact_mail" class="form-control text-grey-900 font-xssss w-50" >
+                        <input disabled value="{{Auth::user()->email}}" type="email" name="contact_mail" class="form-control text-grey-900 font-xssss w-50" >
                     </div>
 
                     <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                         <label for="contact_phone"  class="text-grey-900 font-xsss">Telefon Nömrəsi <span
                                     class="text-red">*</span></label>
-                        <input type="number" name="contact_phone" class="form-control text-grey-900 font-xssss w-50" >
+                        <input disabled value="{{Auth::user()->phone}}" type="number" name="contact_phone" class="form-control text-grey-900 font-xssss w-50" >
                     </div>
                 </div>
             </div>

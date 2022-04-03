@@ -1,0 +1,145 @@
+[33mcommit 3b4c05c859e9d2099f11cef5689a5e870fb45edc[m[33m ([m[1;36mHEAD -> [m[1;32melvin[m[33m)[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sun Apr 3 11:09:17 2022 +0400
+
+    update olanda kohne sekil silinir
+
+[33mcommit c9a58f8d3cc72229bef6c0d066f9946e65f77817[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Fri Apr 1 23:25:35 2022 +0400
+
+    yenilenme
+
+[33mcommit 6a592a33078bcb2a952c5c932904009ed16da4a3[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Mon Mar 28 19:46:30 2022 +0400
+
+    profil sehifesi ve bezi duzelisler hazir
+
+[33mcommit 4c302014aceeafb013ca462e86fb567f3af5e684[m[33m ([m[1;31morigin/elvin[m[33m)[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sat Mar 26 15:40:58 2022 +0400
+
+    xirda deyisiklik
+
+[33mcommit ba94895c96fbbb3860450b7f4b9e8156b7eca0cf[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Fri Mar 25 00:01:14 2022 +0400
+
+    reklam crud isleri ve front hissede gosterilmesi(dinamik) hazir
+
+[33mcommit 432e1b2973fbe9de44ad76e540cef6cec4029707[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Tue Mar 22 13:31:07 2022 +0400
+
+    error islerini duzeltdik
+
+[33mcommit da3fbd7d368f7413e309ead7033a36e476eb9ae3[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sat Mar 19 18:13:29 2022 +0400
+
+    setting crud ve front hissede marka loop edildi
+
+[33mcommit d7ebbaafbd287ae9ccedba8437bf193d1f1c6d03[m[33m ([m[1;31morigin/Mustafa[m[33m, [m[1;32mMustafa[m[33m)[m
+Author: Mustafa Mustafayev <mustafayevmustafa99@gmail.com>
+Date:   Sat Mar 12 15:32:22 2022 +0400
+
+    Elan Paylasmaq marka logolarin index sehifesinde gostermek
+
+[33mcommit c6984fbeb5c742e717731650a975750181770845[m
+Merge: c82e0ba 40a72f4
+Author: Mustafa Mustafayev <mustafayevmustafa99@gmail.com>
+Date:   Fri Mar 11 21:47:21 2022 +0400
+
+    Merge branch 'elvin' into Mustafa
+
+[33mcommit 40a72f4e37f7a96957947b7e434765c61e8de163[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Fri Mar 11 21:46:19 2022 +0400
+
+    yeni versiya
+
+[33mcommit c82e0ba0ac989bbede31ad1084a3f3084381648c[m
+Merge: b274353 d5d0c03
+Author: Mustafa Mustafayev <mustafayevmustafa99@gmail.com>
+Date:   Fri Mar 11 21:37:57 2022 +0400
+
+    Merge branch 'elvin' into Mustafa
+
+[33mcommit b274353e69fc1545be4b250d4e31db01511a3aeb[m
+Author: Mustafa Mustafayev <mustafayevmustafa99@gmail.com>
+Date:   Thu Mar 10 01:00:56 2022 +0400
+
+    Elan Paylasmaq BIr hissesi
+
+[33mcommit d5d0c03fa2a69a9af6b3fd62dc08d22ebde7b8c7[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Tue Mar 8 16:59:17 2022 +0400
+
+    admin login middleware isleri hazir
+
+[33mcommit ab924f206d9c46c32927a2b642ae5791add0a5fc[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Tue Mar 8 11:28:58 2022 +0400
+
+    google register hazir
+
+[33mcommit 0bc800d033eb349743c63755fcf2af3ba1e7d71f[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sun Mar 6 23:02:14 2022 +0400
+
+    facebookla register hazir
+
+[33mcommit 50feba5a1c185def286215ba33723f58c6092c1f[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sun Mar 6 20:09:12 2022 +0400
+
+    register ilk versiya hazir
+
+[33mcommit 48e74a3cabeddacd93d33340b679d81032b26aac[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sun Mar 6 12:24:56 2022 +0400
+
+    login giris ilk versiya
+
+[33mcommit 45aecb4079a5038ab27ee945ea69a108d62688b0[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sat Mar 5 19:40:55 2022 +0400
+
+    breeze paket istifade olundu
+
+[33mcommit 08d843cf4f610f8b7b8846930c7492252c47e0ad[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Mon Feb 28 22:22:38 2022 +0400
+
+    front tema parcalandi
+
+[33mcommit 9e9a58573ccff25ffd9816a83a0d00d209de69d5[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sun Feb 27 23:24:20 2022 +0400
+
+    front tema yuklendi
+
+[33mcommit b2f920d0d932cc8dca36306165480e2c569e54d1[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sat Feb 26 21:26:27 2022 +0400
+
+    vehicle crud hazir
+
+[33mcommit dc14b304499fe5116d307351eec3735d9b4a934a[m
+Author: Elvin <84231975+ElvinEsedullayev@users.noreply.github.com>
+Date:   Sat Feb 26 20:20:47 2022 +0400
+
+    service crud hazir
+
+[33mcommit 394f1b4922aa6c32274e29c9dfce462ca5d9316c[m
+Author: Mustafa Mustafayev <mustafayevmustafa99@gmail.com>
+Date:   Sat Feb 26 14:26:04 2022 +0400
+
+    About Crud
+
+[33mcommit d6bcb336c3c97d6d87f287d44085ff6242cf652f[m
+Author: Mustafa Mustafayev <mustafayevmustafa99@gmail.com>
+Date:   Sat Feb 26 13:42:09 2022 +0400
+
+    first commit

@@ -21,6 +21,8 @@ class HomepageController extends Controller
         ]);
     }
 
+
+
     public function ad()
     {
         if(Auth::guard('web')->id()){
@@ -33,7 +35,7 @@ class HomepageController extends Controller
 
     public function detail($id)
     {
-        
+
         $biker = Biker::find($id);
         $reklam = Reklam::first();
         return view('front.detail',compact('biker','reklam'));
@@ -41,7 +43,8 @@ class HomepageController extends Controller
 
     public function listing()
     {
-        return view('front.listing');
+        $reklam = Reklam::first();
+        return view('front.listing',compact('reklam'));
     }
 
     public function login()

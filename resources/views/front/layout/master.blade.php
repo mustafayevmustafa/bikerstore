@@ -25,8 +25,13 @@
 
 @if(!Route::is('login') and !Route::is('register'))
 @include('front.layout.partials.footer')
-@endif
 
+
+
+@include('front.layout.partials.mobile')
+
+@include('front.layout.partials.menu_nav')
+@endif
 @include('front.layout.partials.script')
 </body>
 

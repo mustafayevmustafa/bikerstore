@@ -1,4 +1,4 @@
-@extends('Admin.layout.master')
+@extends('admin.layout.master')
 
 @section('content')
 
@@ -24,6 +24,8 @@
                             </p>
                             @enderror
                         </div><br>
+
+                        <input type="hidden" name="old_image" value="{{$data->getAttribute('image')}}">
                         <div class="form-group">
                             <label for="post-title" class="mb-2">Content</label>
                             <input type="text" value="{{ optional($data)->getAttribute('content') }}" @if(!$action)  disabled @endif name="content" class="form-control" id="city-name" placeholder="Content insert">

@@ -43,11 +43,33 @@ $(".filter__header").on("click", function () {
 
     if ($(this).parent().hasClass("active"))
     {
-        $(this).parent().css("height", `${(42 + h1 + 26)}`); 
+        $(this).parent().css("height", `${(42 + h1 + 26)}`);
         //26 is padding and margin, 42 is old filter__lsiting height
     }
-    else 
+    else
     {
         $(this).parent().css("height", "42");
     }
 });
+
+
+// FILTER MOBILE
+
+$("#mobile__filter_button").on("click", ()=>{
+    $(".filter__mobile").addClass("active");
+});
+
+$("#filter__mobile__close").on("click", ()=>{
+    $(".filter__mobile").removeClass("active");
+});
+
+
+// MOBILE MENU
+$(".mobile__toggle").on("click", ()=>{
+    $(".menu__overlay").addClass("active");
+});
+
+$("#menu__mobile__close").on("click", ()=>{
+    $(".menu__overlay").removeClass("active");
+});
+

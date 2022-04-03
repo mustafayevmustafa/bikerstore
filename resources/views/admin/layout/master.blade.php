@@ -36,10 +36,10 @@
 <body>
 
 <!-- ======= Header ======= -->
-@include('Admin.layout.header')
+@include('admin.layout.header')
 
 <!-- ======= Sidebar ======= -->
-@include('Admin.layout.menu')
+@include('admin.layout.menu')
 
 <main id="main" class="main">
 
@@ -65,7 +65,7 @@
 </main><!-- End #main -->
 
 <!-- ======= Footer ======= -->
-@include('Admin.layout.footer')
+@include('admin.layout.footer')
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>

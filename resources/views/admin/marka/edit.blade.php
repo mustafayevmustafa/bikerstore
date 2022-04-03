@@ -1,4 +1,4 @@
-@extends('Admin.layout.master')
+@extends('admin.layout.master')
 
 @section('content')
 
@@ -24,6 +24,7 @@
                             </p>
                             @enderror
                         </div><br>
+                        <input type="hidden" name="old_image" value="{{$data->getAttribute('image')}}">
                         <div class="form-group">
                             @if(Route::is('marka.edit'))
                             @if($data->getAttribute('image'))

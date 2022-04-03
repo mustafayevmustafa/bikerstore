@@ -15,8 +15,11 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\ReklamController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BanController;
 use App\Http\Controllers\Front\HomepageController;
 use App\Http\Controllers\Front\SocialController;
+use App\Http\Controllers\Front\ProfileController;
 //use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -32,7 +35,7 @@ Route::group(['prefix'=>'admin'],function(){
 
     Route::group(['middleware'=>'isAdmin'],function(){
         Route::get('/', [HomeController::class, 'index'])->name('admin.home');
-    
+
     Route::resource('city', CityController::class);
     Route::resource('marka', MarkaController::class);
     Route::resource('pattern', PatternController::class);
@@ -44,6 +47,9 @@ Route::group(['prefix'=>'admin'],function(){
     Route::resource('vehicle', VehicleController::class);
     Route::resource('setting', SettingController::class);
     Route::resource('reklam', ReklamController::class);
+    Route::resource('ban', BanController::class);
+
+    Route::get('/users',[UserController::class,'index'])->name('admin.user');
     });
 });
 
@@ -52,13 +58,18 @@ Route::group(['prefix'=>'admin'],function(){
 
 Route::get('/', [HomepageController::class, 'index'])->name('front.index');
 //Route::post('/biker/post', [AnnouncementController::class, 'save'])->name('announcement.post');
-//Route::get('/biker/listing', [HomepageController::class, 'listing'])->name('front.listing');
-Route::group(["prefix" => "biker"],function(){
-    Route::get('/', [HomepageController::class, 'index']);
+
+
+    Route::get('/', [HomepageController::class, 'index'])->name('front.index');
     Route::get('/detail/{id}', [HomepageController::class, 'detail'])->name('detail');
-//    Route::get('/', [HomeController::class, 'ad'])->name('admin.home');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('front.profile');
+    Route::get('/profile-hesab-duzelis', [ProfileController::class, 'hesab'])->name('front.hesab');
+    Route::get('/profile-elanlar', [ProfileController::class, 'elan'])->name('front.elan');
+    Route::get('/profile-odenis', [ProfileController::class, 'odenis'])->name('front.odenis');
+    Route::get('/listing', [HomepageController::class, 'listing'])->name('front.listing');
+    //Route::get('/ad', [HomeController::class, 'ad'])->name('admin.home');
     Route::resource('announcement', \App\Http\Controllers\Front\BikerController::class);
-});
+
 
 Route::get('/biker/login', [HomepageController::class, 'login'])->name('front.login');
 Route::get('/biker/register', [HomepageController::class, 'register'])->name('front.register');
