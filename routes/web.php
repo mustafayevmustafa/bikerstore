@@ -63,7 +63,11 @@ Route::get('/', [HomepageController::class, 'index'])->name('front.index');
     Route::get('/', [HomepageController::class, 'index'])->name('front.index');
     Route::get('/detail/{id}', [HomepageController::class, 'detail'])->name('detail');
     Route::get('/profile', [ProfileController::class, 'index'])->name('front.profile');
+
     Route::get('/profile-hesab-duzelis', [ProfileController::class, 'hesab'])->name('front.hesab');
+    Route::post('/profile-hesab',[ProfileController::class,'profilUpdate'])->name('profil.update');
+
+
     Route::get('/profile-elanlar', [ProfileController::class, 'elan'])->name('front.elan');
     Route::get('/profile-odenis', [ProfileController::class, 'odenis'])->name('front.odenis');
     Route::get('/listing', [HomepageController::class, 'listing'])->name('front.listing');

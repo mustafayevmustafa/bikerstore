@@ -2,7 +2,7 @@
                     <div class="user__info border shadow-xs">
                         <div class="row me-0 me-lg-3">
                             <div class="col-lg-2 col-12 d-flex justify-content-center d-lg-block">
-                                <img src="{{asset('front/assets/images/user.jpg')}}" class="user__img" alt="">
+                                <img src="storage/{{Auth::user()->image}}" class="user__img" alt="">
                             </div>
                             <div
                                 class="col-lg-4 ps-0 ps-lg-5 col-12 d-flex justify-content-center d-lg-block text-center text-lg-start">
