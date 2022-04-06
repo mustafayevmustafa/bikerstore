@@ -62,14 +62,14 @@ Route::get('/', [HomepageController::class, 'index'])->name('front.index');
 
     Route::get('/', [HomepageController::class, 'index'])->name('front.index');
     Route::get('/detail/{id}', [HomepageController::class, 'detail'])->name('detail');
-    Route::get('/profile', [ProfileController::class, 'index'])->name('front.profile');
+    Route::get('/profile', [ProfileController::class, 'index'])->name('front.profile')->middleware('isProfile');
 
-    Route::get('/profile-hesab-duzelis', [ProfileController::class, 'hesab'])->name('front.hesab');
+    Route::get('/profile-hesab-duzelis', [ProfileController::class, 'hesab'])->name('front.hesab')->middleware('isProfile');
     Route::post('/profile-hesab',[ProfileController::class,'profilUpdate'])->name('profil.update');
 
 
-    Route::get('/profile-elanlar', [ProfileController::class, 'elan'])->name('front.elan');
-    Route::get('/profile-odenis', [ProfileController::class, 'odenis'])->name('front.odenis');
+    Route::get('/profile-elanlar', [ProfileController::class, 'elan'])->name('front.elan')->middleware('isProfile');
+    Route::get('/profile-odenis', [ProfileController::class, 'odenis'])->name('front.odenis')->middleware('isProfile');
     Route::get('/listing', [HomepageController::class, 'listing'])->name('front.listing');
     //Route::get('/ad', [HomeController::class, 'ad'])->name('admin.home');
     Route::resource('announcement', \App\Http\Controllers\Front\BikerController::class);
@@ -85,7 +85,9 @@ Route::get('/login/google/callback',[SocialController::class,'loginWithGoogle'])
 Route::get('/logout',[HomepageController::class,'logout'])->name('front.logout');
 
 
-
+Route::get('/linkstorage',function(){
+   Artisan::call('storage:link');
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
