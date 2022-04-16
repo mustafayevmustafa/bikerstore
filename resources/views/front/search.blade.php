@@ -14,16 +14,7 @@
                     <div class="row px-2">
                         <div class="bottom__menu mb-3 border py-2 px-4 shadow-xs rounded">
                             <div class="row my-2">
-                                @foreach($bans as $ban)
-                                <a href="{{url('/ban',$ban)}}" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <img class="menu__icon" width="25" height="25"
-                                            src="{{asset("storage/{$ban->getAttribute('image')}")}}">
-                                        <span class="font-xsss">{{$ban->name}}</span>
-                                    </div>
-                                </a>
-                                @endforeach
+                                
                             </div>
 
                          
@@ -43,7 +34,7 @@
                         <div class="mid__menu city__names border shadow-xs mb-2">
                             <ul class="ps-3 pt-2">
                                 @foreach($cities as $city)
-                                    <li class="lh-18"><a href="{{url('/seherler',$city)}}" class="font-xsss text-grey-900">{{$city->name}}</a></li>
+                                    <li class="lh-18"><a href="{{url('/seherler')}}" class="font-xsss text-grey-900">{{$city->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -135,7 +126,7 @@
                             </span>
                             <a href="{{route('detail',$biker->id)}}">
                                 <div class="image__container ovh">
-                                    <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="motorcycle">
+                                    <img src="{{asset("storage/{$biker->getAttribute('bikerimage')}")}}" alt="motorcycle">
                                 </div>
                                 <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">{{$biker->marka->name}}</span>
                                 <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">{{$biker->city->name}}</span>

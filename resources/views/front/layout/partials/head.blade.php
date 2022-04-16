@@ -29,6 +29,8 @@
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="{{asset('front/assets/owl-carousel/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('front/assets/owl-carousel/css/owl.theme.default.css')}}">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    @yield('css')
 
 </head>
 

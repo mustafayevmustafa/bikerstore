@@ -124,6 +124,17 @@
                                     </select>
                                 </div>
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
+                                    <label for="ban_id" class="text-grey-900 font-xsss">Ban Növü <span
+                                                class="text-red">*</span></label>
+                                    <select name="ban_id"
+                                            class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="ban">
+                                        <option value="Bütün Markalar" disabled selected>Ban Növləri</option>
+                                        @foreach($bans as $ban)
+                                            <option value="{{$ban->id}}">{{$ban->name}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                                     <label for="fuel_id" class="text-grey-900 font-xsss">Yanacaq Növü <span
                                                 class="text-red">*</span></label>
                                     <select name="fuel_id"
@@ -247,7 +258,7 @@
                                 <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                                 <button type="button" class="main__photo custom__button btn font-xsssss posa">Əsas Şəkil</button>
                             </div>
-
+                           
                             <div class="ad__image posr">
                                 <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                                 <button type="button" class="main__photo custom__button btn font-xsssss posa">Əsas Şəkil</button>
@@ -256,9 +267,17 @@
                             <label for="file-input" class="ad__label shadow-xs bg-current-low" role="button">
                                 <i class='bx bx-download text-white font-xl'></i>
                                 <span class="upload__text text-white font-xs">Şəkil yüklə</span>
-                                <input type="file" name="image" class="d-none" id="file-input" multiple=""
-                                       accept="image/png, image/jpeg, image/jpeg">
+                                <input type="file" name="images[]" class="d-none" id="file-input" multiple=""
+                                       accept="image/*">
+                                        {{-- @if ($errors->has('files'))
+            @foreach ($errors->get('files') as $error)
+            <span class="invalid-feedback" role="alert">
+                <strong>{{ $error }}</strong>
+            </span>
+            @endforeach
+          @endif --}}
                             </label>
+                            
 
                         </div>
 

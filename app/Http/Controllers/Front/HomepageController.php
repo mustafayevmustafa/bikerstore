@@ -8,6 +8,7 @@ use App\Models\City;
 use App\Models\Marka;
 use App\Models\Reklam;
 use App\Models\Ban;
+use App\Models\Pattern;
 use Illuminate\Http\Request;
 use Auth;
 class HomepageController extends Controller
@@ -19,7 +20,8 @@ class HomepageController extends Controller
             'cities'   => City::get(),
             'markas'   => Marka::get(),
             'reklam'   => Reklam::first(),
-            'bans'      => Ban::get()
+            'bans'      => Ban::get(),
+            'patterns'  => Pattern::get()
         ]);
     }
 

@@ -12,6 +12,7 @@
                         </span>
                         <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="" class="detail__img w-100 rounded rounded-2">
                     </div>
+                     <input type="hidden" name="old_image" value="{{$biker->image}}">
                     <div class="more__detail">
                         <div class="row py-3 ovh w-100 ms-0">
                             <div class="font-xss row ps-1 text-grey-900 pb-2 border-bottom mb-3 ovh">
@@ -95,10 +96,14 @@
                             <i class='bx bx-edit-alt font-md me-1'></i>
                             <span>Düzəliş et</span>
                         </button>
-                        <button class="bg-danger custom__button border font-xss btn text-white">
-                            <i class='bx bx-x font-lg me-1'></i>
-                            <span>Elanı sil</span>
-                        </button>
+                        <form style="display:inline-block" method="post" action="{{route('announcement.destroy',$biker->id)}}">
+                                        @method('delete') @csrf
+                                        <button type="submit" class="bg-danger custom__button border font-xss btn text-white">
+                                           <i class='bx bx-x font-lg me-1'></i>
+                                        </button>
+                                    </form>
+                        
+                        
                     </div>
                 </div>
             </div>

@@ -12,10 +12,11 @@ use App\Models\Fuel;
 use App\Models\Marka;
 use App\Models\Reklam;
 use App\Models\Pattern;
+use App\Models\Ban;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Illuminate\Support\Facades\Storage;
 class BikerController extends Controller
 {
     /**
@@ -47,8 +48,9 @@ class BikerController extends Controller
             'colors'         => Color::get(),
             'cities'         => City::get(),
             'fuels'          => Fuel::get(),
-            'reklam'         => Reklam::first()
-        ]);;
+            'reklam'         => Reklam::first(),
+            'bans'           => Ban::get()
+        ]);
         }else{
             return redirect()->route('login');
         }
@@ -75,18 +77,31 @@ class BikerController extends Controller
      */
     public function store(BikerRequest $request): RedirectResponse
     {
-
+       //dd($request->file('images'));
         $validated = $request->validated();
+        //dd($validated);
         $validated['credit'] = $request->has('credit');
         $validated['barter'] = $request->has('barter');
         $validated['user_id'] = auth()->user()->id ?? 0;
 
-        $image_path = 'biker/' . time() . '.' . $request->file('image')->extension();
 
-        $request->file('image')->storeAs('public', $image_path);
+        if ($request->hasfile('images')) {
+            $images = $request->file('images');
 
-        $validated['image'] = $image_path;
-        $generators = Biker::create($validated);
+            foreach($images as $image) {
+                //$name = $image->getClientOriginalName();
+                $image_path = 'biker/' . time() . '.' . $image->extension();
+                //$path = $image->storeAs('uploads', $name, 'public');
+                $image->storeAs('public', $image_path);
+                $validated['images'] = $image_path;
+                $generators = Biker::create($validated);
+            }
+         }
+        
+         //$generators = Biker::create($validated);
+        
+
+        
 
         return redirect()->route('announcement.create')->with('success', "Promo Code Generation created successfully!");
     }
@@ -133,6 +148,11 @@ class BikerController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $image = Biker::find($id);
+        $old_image = $image->image;
+        Storage::disk('public')->delete($old_image);
+        Biker::find($id)->delete();
+        return redirect()->route('front.index')
+            ->withSuccess(__('Biker delete successfully.'));
     }
 }

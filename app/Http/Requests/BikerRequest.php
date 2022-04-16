@@ -30,6 +30,7 @@ class BikerRequest extends FormRequest
             'fuel_id'     => 'required',
             'image'       => "mimes:png,jpg,jpeg",
             'city_id'     => 'required',
+            'ban_id'      => 'required',
             'km'          => 'required',
             'marka_id'    => 'required',
             'price'       => 'required',

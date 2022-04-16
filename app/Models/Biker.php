@@ -31,7 +31,9 @@ class Biker extends Model
         'contact_name',
         'contact_mail',
         'contact_phone',
+        'ban_id',
     ];
+    
     protected $casts = [
         'barter' => 'boolean',
         'credit' => 'boolean',

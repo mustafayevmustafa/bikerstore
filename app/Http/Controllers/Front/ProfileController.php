@@ -37,9 +37,9 @@ class ProfileController extends Controller
         $validate[] = Validator::make($request->all(), [
             'name'   => 'required',
             'surname' => 'required',
-            'phone'    => 'required',
+            //'phone'    => 'required',
             'email'    => 'required',
-            'adress'   => 'required',
+            //'adress'   => 'required',
             'image'   => 'mimes:png,jpg,jpeg'
     ]);
     
@@ -87,7 +87,7 @@ class ProfileController extends Controller
 
      public function elan()
     {
-        $bikers = Biker::paginate(10);
+        $bikers = Biker::where('user_id',Auth::user()->id)->paginate(10);
         $reklam = Reklam::first();
         $user = User::first();
         return view('front.profil.elan',compact('reklam','user','bikers'));

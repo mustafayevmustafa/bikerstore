@@ -13,31 +13,13 @@
                 <div class="col-lg-3 text-white">
                     <div class="row px-2">
                         <div class="bottom__menu mb-3 border py-2 px-4 shadow-xs rounded">
-                            <div class="row my-2">
-                                @foreach($bans as $ban)
-                                <a href="{{url('/ban',$ban)}}" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <img class="menu__icon" width="25" height="25"
-                                            src="{{asset("storage/{$ban->getAttribute('image')}")}}">
-                                        <span class="font-xsss">{{$ban->name}}</span>
-                                    </div>
-                                </a>
-                                @endforeach
-                            </div>
+                        
 
                          
 
                          
                         </div>
-                        <div class="mid__menu border shadow-xs pt-3 mb-3">
-                            <ul class="ps-3">
-                                @foreach($markas as $marka)
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset("storage/{$marka->getAttribute('image')}")}}"> {{$marka->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
+                   
 
                         <h4 class="text-white bg-current-low mb-0 py-1 rounded-top">Şəhərlər</h4>
                         <div class="mid__menu city__names border shadow-xs mb-2">
@@ -133,14 +115,14 @@
                             <span class="wishlist posa">
                                 <i class='bx bx-heart text-current font-xs'></i>
                             </span>
-                            <a href="{{route('detail',$biker->id)}}">
+                            <a href="">
                                 <div class="image__container ovh">
                                     <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="motorcycle">
                                 </div>
-                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">{{$biker->marka->name}}</span>
-                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">{{$biker->city->name}}</span>
+                                <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600"></span>
+                                <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500"></span>
                                 <div class="d-flex justify-content-between align-items-center pe-1">
-                                    <span class="ps-2 font-xsss text-grey-700 fw-500">{{$biker->price}} AZN</span>
+                                    <span class="ps-2 font-xsss text-grey-700 fw-500"> AZN</span>
                                 </div>
                             </a>
                         </div>

@@ -28,15 +28,17 @@
         </div>
         @if(Route::is('front.index'))
         <div class="row header__mid">
-            <form action="" class="d-flex justify-content-start align-items-center ms-3">
-                <input type="text" class="font-xsss" id="search__input" placeholder="Bir Şeylər Axtarın . . .">
-                <label for="search__input" class="font-sm" id="search__label">
+            <form action="{{url('/search')}}" method="GET" class="d-flex justify-content-start align-items-center ms-3">
+                @csrf
+                
+                <input type="search"  name="marka_id" class="font-xsss" id="search__input" placeholder="Bir Şeylər Axtarın . . .">
+                <button type="submit" for="search__input" class="font-sm" id="search__label">
                     <i class='bx bx-search'></i>
-                </label>
+                </button>
             </form>
         </div>
         @endif
-
+        
         <div class="row header__right">
             <div class="container d-flex align-items-center">
                  @if (Route::has('login'))
@@ -63,3 +65,34 @@
     </div>
 </div>
 <!-- HEADERS -->
+{{--
+@section('js')
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script>
+    function search() {
+    var availableTags = [
+      
+    ];
+    $.ajax({
+        method: 'GET',
+        url:     '/biker-list',
+        success:  function(response){
+            //console.log(response);
+            startAutoComplete(response);
+        }
+    });
+    function startAutoComplete(availableTags){
+         $( "#search__input" ).autocomplete({
+        source: availableTags
+    });
+    }
+}
+
+  </script>
+       
+</script>
+
+
+@endsection
+--}}

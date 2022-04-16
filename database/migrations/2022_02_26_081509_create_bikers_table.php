@@ -24,6 +24,7 @@ class CreateBikersTable extends Migration
             $table->date('year')->nullable();
             $table->string('fuel_id')->nullable();
             $table->integer('city_id')->nullable();
+            $table->integer('ban_id')->nullable();
             $table->integer('marka_id')->nullable();
             $table->integer('pattern_id')->nullable();
             $table->integer('user_id')->nullable();

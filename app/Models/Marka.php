@@ -10,4 +10,8 @@ class Marka extends Model
     use HasFactory;
 
     protected $fillable = ['name','image'];
+    public function biker()
+    {
+        return $this->belongsTo(Biker::class);
+    }
 }

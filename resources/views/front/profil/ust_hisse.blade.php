@@ -2,7 +2,11 @@
                     <div class="user__info border shadow-xs">
                         <div class="row me-0 me-lg-3">
                             <div class="col-lg-2 col-12 d-flex justify-content-center d-lg-block">
+                                @if(Auth::user()->image == null)
+                                 <img src="{{asset("front/assets/images/moto.jpg")}}" alt="motorcycle"  class="user__img">
+                                 @else
                                 <img src="storage/{{Auth::user()->image}}" class="user__img" alt="">
+                                @endif
                             </div>
                             <div
                                 class="col-lg-4 ps-0 ps-lg-5 col-12 d-flex justify-content-center d-lg-block text-center text-lg-start">
