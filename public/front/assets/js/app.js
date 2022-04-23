@@ -1,7 +1,36 @@
-$(document).ready(function () {
+$(document).ready(function() {
+    $('.add-to-wishlist-btn').click(function(e) {
+        e.preventDefault();
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+            // data: {
+            //     "_token": "{{ csrf_token() }}",
+            // }
+        });
+        var biker_id = $(this).closest('.biker_data').find('.biker_id').val();
+        //alert(biker_id);
+        $.ajax({
+            method: "POST",
+            url: "/add-wishlist",
+            data: {
+                'biker_id': biker_id,
+            },
+            success: function(response) {
+                //console.log(biker_id);
+                alertify.set('notifier', 'position', 'top-right');
+                alertify.success(response.status);
+            }
+        });
+    });
+});
+$(document).ready(function() {
     "use strict";
 
-    $(".wishlist").on("click", function () {
+    $(".wishlist").on("click", function() {
+
         $(this).find('i').toggleClass("active");
     });
 
@@ -37,17 +66,14 @@ $(document).ready(function () {
 
 // FİLTER
 
-$(".filter__header").on("click", function () {
+$(".filter__header").on("click", function() {
     $(this).parent().toggleClass("active");
     var h1 = $(this).parent().find(".filter__elements").height();
 
-    if ($(this).parent().hasClass("active"))
-    {
+    if ($(this).parent().hasClass("active")) {
         $(this).parent().css("height", `${(42 + h1 + 26)}`);
         //26 is padding and margin, 42 is old filter__lsiting height
-    }
-    else
-    {
+    } else {
         $(this).parent().css("height", "42");
     }
 });
@@ -55,21 +81,20 @@ $(".filter__header").on("click", function () {
 
 // FILTER MOBILE
 
-$("#mobile__filter_button").on("click", ()=>{
+$("#mobile__filter_button").on("click", () => {
     $(".filter__mobile").addClass("active");
 });
 
-$("#filter__mobile__close").on("click", ()=>{
+$("#filter__mobile__close").on("click", () => {
     $(".filter__mobile").removeClass("active");
 });
 
 
 // MOBILE MENU
-$(".mobile__toggle").on("click", ()=>{
+$(".mobile__toggle").on("click", () => {
     $(".menu__overlay").addClass("active");
 });
 
-$("#menu__mobile__close").on("click", ()=>{
+$("#menu__mobile__close").on("click", () => {
     $(".menu__overlay").removeClass("active");
 });
-

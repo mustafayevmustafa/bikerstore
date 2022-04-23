@@ -78,29 +78,41 @@ class BikerController extends Controller
     public function store(BikerRequest $request): RedirectResponse
     {
        //dd($request->file('images'));
-        $validated = $request->validated();
-        //dd($validated);
+        // $validated = $request->validated();
+        // //dd($validated);
+        // $validated['credit'] = $request->has('credit');
+        // $validated['barter'] = $request->has('barter');
+        // $validated['user_id'] = auth()->user()->id ?? 0;
+
+
+        //if ($request->hasfile('image')) {
+            //$images = $request->file('image');
+
+            //foreach($images as $image) {
+                //$name = $image->getClientOriginalName();
+                // $image_path = 'biker/' . time() . '.' . $request->file('image')->extension();
+                // //$path = $image->storeAs('uploads', $name, 'public');
+                // $request->file('image')->storeAs('public', $image_path);
+                // $validated['image'] = $image_path;
+                // $generators = Biker::create($validated);
+            //}
+         //}
+        
+         //$generators = Biker::create($validated);
+        
+                $validated = $request->validated();
         $validated['credit'] = $request->has('credit');
         $validated['barter'] = $request->has('barter');
         $validated['user_id'] = auth()->user()->id ?? 0;
 
+        $image_path = 'biker/' . time() . '.' . $request->file('image')->extension();
 
-        if ($request->hasfile('images')) {
-            $images = $request->file('images');
+        $request->file('image')->storeAs('public', $image_path);
 
-            foreach($images as $image) {
-                //$name = $image->getClientOriginalName();
-                $image_path = 'biker/' . time() . '.' . $image->extension();
-                //$path = $image->storeAs('uploads', $name, 'public');
-                $image->storeAs('public', $image_path);
-                $validated['images'] = $image_path;
-                $generators = Biker::create($validated);
-            }
-         }
-        
-         //$generators = Biker::create($validated);
-        
+        $validated['image'] = $image_path;
+        $generators = Biker::create($validated);
 
+       // return redirect()->route('announcement.create')->with('success', "Promo Code Generation created successfully!");
         
 
         return redirect()->route('announcement.create')->with('success', "Promo Code Generation created successfully!");

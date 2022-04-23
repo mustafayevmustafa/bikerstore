@@ -267,7 +267,7 @@
                             <label for="file-input" class="ad__label shadow-xs bg-current-low" role="button">
                                 <i class='bx bx-download text-white font-xl'></i>
                                 <span class="upload__text text-white font-xs">Şəkil yüklə</span>
-                                <input type="file" name="images[]" class="d-none" id="file-input" multiple=""
+                                <input type="file" name="image" class="d-none" id="file-input" multiple=""
                                        accept="image/*">
                                         {{-- @if ($errors->has('files'))
             @foreach ($errors->get('files') as $error)

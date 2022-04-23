@@ -129,10 +129,19 @@
                     </div>
                     <div class="card__wrapper">
                         @foreach($bikers as $biker)
-                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2" id="myTable">
-                            <span class="wishlist posa">
+                        <div class="custom__card biker_data border shadow-xs ovh d-flex flex-column bg-white posr pb-2" id="myTable">
+                            <div class="wishlist-content">
+                                <input type="text" name="biker_id" value="{{$biker->id}}">
+                            @guest
+                            <button type="button" class="wishlist posa">
                                 <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
+                            </button>
+                            @else
+                            <button type="button" class="add-to-wishlist-btn wishlist posa">
+                                <i class='bx bx-heart text-current font-xs'></i>
+                            </button>
+                            @endguest
+                            </div>
                             <a href="{{route('detail',$biker->id)}}">
                                 <div class="image__container ovh">
                                     <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="motorcycle">
@@ -154,3 +163,4 @@
 
     <!-- MAIN WRAPPER -->
     @endsection
+    

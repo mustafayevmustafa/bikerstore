@@ -10,5 +10,9 @@ class Pattern extends Model
     use HasFactory;
 
     protected $fillable = ['name'];
+    public function biker()
+    {
+        return $this->belongsTo(Biker::class);
+    }
 
 }

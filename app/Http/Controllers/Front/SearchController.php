@@ -71,7 +71,7 @@ class SearchController extends Controller
         // if($request->marka_id){
         //     $bikers = Biker::where('marka_id','LIKE','%'.$request->marka_id.'%')->get();
         // }fso abim ..bir dene buna bax seherler ve ban novu demisdin ..mence onlar islek idi ..girim bax
-        return view('front.search',compact('cities','markas','patterns','bikers','reklam','bans'));
+        return view('front.search.search',compact('cities','markas','patterns','bikers','reklam','bans'));
     // get the search term
     // $text = $request->input('marka_name');
 
@@ -87,5 +87,91 @@ class SearchController extends Controller
     // // return the results
     // return response()->json($patients);
 
-}
+    }
+
+    public function markaSearch(Request $request)
+    {
+        //dd('OK');
+        //$marka_name = $request->marka;
+        
+        //return dd($request->marka);
+        
+        if($request->city){
+            //return dd($request->city);
+            $bikers =Biker::join('cities','bikers.city_id','=','cities.id')
+            ->where('cities.name','LIKE',$request->city)
+            ->select('bikers.*','bikers.image as bikerimage','cities.name',)
+            ->get();
+        }
+        if($request->kredit != null ){
+            $bikers = Biker::where('credit',1)->select('bikers.*','bikers.image as bikerimage')->get();
+        }
+        if($request->barter != null ){
+            $bikers = Biker::where('barter',1)->select('bikers.*','bikers.image as bikerimage')->get();
+        }
+        
+       
+        if($request->marka && $request->city){
+            $bikers =Biker::join('markas','bikers.marka_id','=','markas.id')
+            ->join('cities','bikers.city_id','=','cities.id')
+            ->where('markas.name','LIKE',$request->marka)
+            ->where('cities.name','LIKE',$request->city)
+            ->select('bikers.*','bikers.image as bikerimage','markas.name',)
+            ->select('bikers.*','bikers.image as bikerimage','cities.name',)
+            ->get();
+        }
+        if($request->model && $request->city){
+            //return dd($request->model);
+            $bikers =Biker::join('patterns','bikers.pattern_id','=','patterns.id')
+            ->join('cities','bikers.city_id','=','cities.id')
+            ->where('patterns.name','LIKE',$request->model)
+            ->where('cities.name','LIKE',$request->city)
+            ->select('bikers.*','bikers.image as bikerimage','patterns.name',)
+            ->select('bikers.*','bikers.image as bikerimage','cities.name',)
+            ->get();
+        }
+        if($request->marka && $request->model && $request->city){
+            $bikers =Biker::join('markas','bikers.marka_id','=','markas.id')
+            ->join('patterns','bikers.pattern_id','=','patterns.id')
+            ->join('cities','bikers.city_id','=','cities.id')
+            ->where('markas.name','LIKE',$request->marka)
+            ->where('patterns.name','LIKE',$request->model)
+            ->where('cities.name','LIKE',$request->city)
+            ->select('bikers.*','bikers.image as bikerimage','markas.name',)
+            ->select('bikers.*','bikers.image as bikerimage','patterns.name',)
+            ->select('bikers.*','bikers.image as bikerimage','cities.name',)
+            ->get();
+        }
+        if($request->marka){
+            $bikers =Biker::join('markas','bikers.marka_id','=','markas.id')
+            ->where('markas.name','LIKE',$request->marka)
+            ->select('bikers.*','bikers.image as bikerimage','markas.name',)
+            ->get();
+        }
+        if($request->model){
+            //return dd($request->model);
+            $bikers =Biker::join('patterns','bikers.pattern_id','=','patterns.id')
+            ->where('patterns.name','LIKE',$request->model)
+            ->select('bikers.*','bikers.image as bikerimage','patterns.name',)
+            ->get();
+        }
+        if($request->marka && $request->model){
+            $bikers =Biker::join('markas','bikers.marka_id','=','markas.id')
+            ->join('patterns','bikers.pattern_id','=','patterns.id')
+            ->where('markas.name','LIKE',$request->marka)
+            ->where('patterns.name','LIKE',$request->model)
+            ->select('bikers.*','bikers.image as bikerimage','markas.name',)
+            ->select('bikers.*','bikers.image as bikerimage','patterns.name',)
+            ->get();
+        }
+        $cities = City::get();
+        $markas = Marka::get();
+        $patterns = Pattern::get();
+        $reklam = Reklam::first();
+        $bans = Ban::first();
+        
+        
+        //return dd($result);
+        return view('front.search.index',compact('cities','markas','patterns','bikers','reklam','bans'));
+    }
 }

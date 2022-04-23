@@ -28,7 +28,7 @@
         </div>
         @if(Route::is('front.index'))
         <div class="row header__mid">
-            <form action="{{url('/search')}}" method="GET" class="d-flex justify-content-start align-items-center ms-3">
+            <form action="{{url('/search')}}" method="POST" class="d-flex justify-content-start align-items-center ms-3">
                 @csrf
                 
                 <input type="search"  name="marka_id" class="font-xsss" id="search__input" placeholder="Bir Şeylər Axtarın . . .">

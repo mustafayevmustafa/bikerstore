@@ -14,16 +14,7 @@
                     <div class="row px-2">
                         <div class="bottom__menu mb-3 border py-2 px-4 shadow-xs rounded">
                             <div class="row my-2">
-                                @foreach($bans as $ban)
-                                <a href="{{url('/ban',$ban)}}" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <img class="menu__icon" width="25" height="25"
-                                            src="{{asset("storage/{$ban->getAttribute('image')}")}}">
-                                        <span class="font-xsss">{{$ban->name}}</span>
-                                    </div>
-                                </a>
-                                @endforeach
+                                
                             </div>
 
                          
@@ -43,7 +34,7 @@
                         <div class="mid__menu city__names border shadow-xs mb-2">
                             <ul class="ps-3 pt-2">
                                 @foreach($cities as $city)
-                                    <li class="lh-18"><a href="{{url('/seherler',$city)}}" class="font-xsss text-grey-900">{{$city->name}}</a></li>
+                                    <li class="lh-18"><a href="{{url('/seherler')}}" class="font-xsss text-grey-900">{{$city->name}}</a></li>
                                 @endforeach
                             </ul>
                         </div>
@@ -52,24 +43,21 @@
 
 
                 <div class="col-lg-9 border py-3">
-                    {{--          FILTER   START --}}
-                   
-                        <div class="filter my-2 px-3 py-3 border rounded rounded-1">
-                        <form action="{{route('marka.search')}}" method="POST">
-                            @csrf
-                        <div class="row d-flex justify-content-center align-items-center">     
-                            <div class="col-md-2">    
-                                <select name="marka" class="form-select mb-2 font-xsssss text-grey-900" id="">
+                    <div class="filter my-2 px-3 py-3 border rounded rounded-1">
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-md-2">
+                                
+                                <select name="Markalar" class="form-select mb-2 font-xsssss text-grey-900" id="">
                                     <option value="Bütün Markalar" disabled selected>Bütün Markalar</option>
                                     @foreach($markas as $marka)
-                                    <option value="{{$marka->name}}">{{$marka->name}}</option>
+                                    <option value="Davidson">{{$marka->name}}</option>
                                    @endforeach
                                 </select>
                                 
-                                <select name="model" class="form-select font-xsssss text-grey-900" id="">
+                                <select name="Markalar" class="form-select font-xsssss text-grey-900" id="">
                                     <option value="Bütün Markalar" disabled selected>Bütün Modeller</option>
                                     @foreach($patterns as $model)
-                                    <option value="{{$model->name}}">{{$model->name}}</option>
+                                    <option value="Davidson">{{$model->name}}</option>
                                    @endforeach
                                 </select>
                             </div>
@@ -97,12 +85,12 @@
                                 <div class="row mb-2 d-flex justify-content-center">
                                     <span
                                         class="me-1 px-2 border rounded font-xssss bg-white d-flex align-items-center w-auto">Kredit
-                                        <input class="form-check-input ms-2 mt-0" type="checkbox" name="kredit"></span>
+                                        <input class="form-check-input ms-2 mt-0" type="checkbox"></span>
                                 </div>
                                 <div class="row d-flex justify-content-center">
                                     <span
                                         class="me-1 px-2 border rounded font-xssss bg-white d-flex align-items-center w-auto">Barter
-                                        <input class="form-check-input ms-2 mt-0" type="checkbox" name="barter"></span>
+                                        <input class="form-check-input ms-2 mt-0" type="checkbox"></span>
                                 </div>
                             </div>
                             <div class="col-md-2">
@@ -111,7 +99,7 @@
                                         id="">
                                         <option value="city" selected>Bütün Şəhərlər</option>
                                         @foreach($cities as $city)
-                                           <option value="{{$city->name}}">{{$city->name}}</option>
+                                           <option value="{{$city->id}}">{{$city->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -129,31 +117,16 @@
                                 </div>
                             </div>
                         </div>
-                        
-                    </div> 
-                    </form>
-                    {{--   FILTER END --}}
+                    </div>
                     <div class="card__wrapper">
                         @foreach($bikers as $biker)
-                        <div class="custom__card biker_data border shadow-xs ovh d-flex flex-column bg-white posr pb-2" id="myTable">
-                          <div class="wishlist-content">
-                                <input type="hidden"  class="biker_id" value="{{$biker->id}}">
-                            @guest
-                            <a href="{{route('add-wishlist')}}">
-                                <span type="button" class="wishlist posa">
+                        <div class="custom__card border shadow-xs ovh d-flex flex-column bg-white posr pb-2" id="myTable">
+                            <span class="wishlist posa">
                                 <i class='bx bx-heart text-current font-xs'></i>
                             </span>
-                            </a>
-                            
-                            @else
-                            <span type="button" class="add-to-wishlist-btn wishlist posa">
-                                <i class='bx bx-heart text-current font-xs'></i>
-                            </span>
-                            @endguest
-                            </div>
                             <a href="{{route('detail',$biker->id)}}">
                                 <div class="image__container ovh">
-                                    <img src="{{asset("storage/{$biker->getAttribute('image')}")}}" alt="motorcycle">
+                                    <img src="{{asset("storage/{$biker->getAttribute('bikerimage')}")}}" alt="motorcycle">
                                 </div>
                                 <span class="ps-2 font-xsss mt-1  text-grey-700 fw-600">{{$biker->marka->name}}</span>
                                 <span class="ps-2 font-xssss mt-1 text-grey-700 fw-500">{{$biker->city->name}}</span>
@@ -172,34 +145,3 @@
 
     <!-- MAIN WRAPPER -->
     @endsection
-    {{--
-    @section('js')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-        $(document).ready(function() {
-    $('.add-to-wishlist-btn').click(function(e) {
-        e.preventDefault();
-
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        var biker_id = $(this).closest('.biker_data').find('.biker_id').val();
-        //alert(biker_id);
-        $.ajax({
-            method: "POST",
-            url: "/add-wishlist",
-            data: {
-                'biker_id ': biker_id,
-            },
-            success: function(e) {
-                alertify.set('notifier', 'position', 'top-right');
-                alertify.success(response.status);
-            }
-        });
-    });
-});
-    </script>
-    @endsection
---}}
