@@ -9,7 +9,7 @@ class Pattern extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','marka_id'];
     public function biker()
     {
         return $this->belongsTo(Biker::class);

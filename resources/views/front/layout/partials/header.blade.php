@@ -1,5 +1,6 @@
 <!-- HEADERS -->
-<div class="upper-header py-2 bg-grey d-flex align-items-center mw mx-auto">
+<nav class="shadow-sm posr mw mx-auto">
+<div class="upper-header py-2 bg-grey d-flex align-items-center">
     <div class="container d-flex justify-content-end ">
         <div class="row">
             <ul class="d-flex flex-row justify-content-end align-items-center mb-0">
@@ -21,23 +22,14 @@
     </div>
 </div>
 
-<div class="lower-header py-2 d-flex align-items-center w-100 bg-white mw mx-auto">
+<div class="lower-header py-2 d-flex align-items-center w-100 bg-white ">
     <div class="container d-flex justify-content-between align-items-center">
         <div class="row header__left">
-            <a href="/"><img src="{{asset('front/assets/images/logo.png')}}" width="200" alt=""></a>
+            <a href="/"><img src="{{asset('front/assets/images/logo.png')}}" height="80" alt=""></a>
         </div>
-        @if(Route::is('front.index'))
-        <div class="row header__mid">
-            <form action="{{url('/search')}}" method="POST" class="d-flex justify-content-start align-items-center ms-3">
-                @csrf
-                
-                <input type="search"  name="marka_id" class="font-xsss" id="search__input" placeholder="Bir Şeylər Axtarın . . .">
-                <button type="submit" for="search__input" class="font-sm" id="search__label">
-                    <i class='bx bx-search'></i>
-                </button>
-            </form>
-        </div>
-        @endif
+       
+        @include('front\layout\partials\search')
+    
         
         <div class="row header__right">
             <div class="container d-flex align-items-center">
@@ -59,11 +51,12 @@
             </div>
         </div>
         <!-- mobile toggle -->
-                <span class="mobile__menu__toggle d-block d-md-none mobile__toggle font-xl text-current">
-                    <i class='bx bx-menu-alt-right'></i>
+             <span class="mobile__menu__toggle d-block d-md-none font-xl text-current" id="mobile__filter_button">
+                    <i class='bx bx-filter-alt'></i>
                 </span>
     </div>
 </div>
+</nav>
 <!-- HEADERS -->
 {{--
 @section('js')

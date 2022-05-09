@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Reklam;
 use App\Models\User;
 use App\Models\Biker;
+use App\Models\City;
+use App\Models\Marka;
+use App\Models\Pattern;
 use App\Http\Requests\ProfilRequest;
 use Illuminate\Support\Facades\Storage;
 use Validator;
@@ -17,16 +20,22 @@ class ProfileController extends Controller
     {
         $user = User::first();
         $reklam = Reklam::first();
-        return view('front.profil.index',compact('reklam','user'));
+        $cities = City::get();
+        $markas = Marka::get();
+        $patterns = Pattern::get();
+        return view('front.profil.index',compact('reklam','user','cities','markas','patterns'));
     }
 
 
 
      public function hesab()
     {
-        $reklam = Reklam::first();
         $user = User::first();
-        return view('front.profil.hesab_duzelis',compact('reklam','user'));
+        $reklam = Reklam::first();
+        $cities = City::get();
+        $markas = Marka::get();
+        $patterns = Pattern::get();
+        return view('front.profil.hesab_duzelis',compact('reklam','user','cities','markas','patterns'));
     }
 
 
@@ -88,15 +97,21 @@ class ProfileController extends Controller
      public function elan()
     {
         $bikers = Biker::where('user_id',Auth::user()->id)->paginate(10);
-        $reklam = Reklam::first();
         $user = User::first();
-        return view('front.profil.elan',compact('reklam','user','bikers'));
+        $reklam = Reklam::first();
+        $cities = City::get();
+        $markas = Marka::get();
+        $patterns = Pattern::get();
+        return view('front.profil.elan',compact('reklam','user','cities','markas','patterns','bikers'));
     }
 
      public function odenis()
     {
-        $reklam = Reklam::first();
         $user = User::first();
-        return view('front.profil.odenis',compact('reklam','user'));
+        $reklam = Reklam::first();
+        $cities = City::get();
+        $markas = Marka::get();
+        $patterns = Pattern::get();
+        return view('front.profil.odenis',compact('reklam','user','cities','markas','patterns'));
     }
 }

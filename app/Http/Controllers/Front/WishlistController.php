@@ -10,14 +10,11 @@ class WishlistController extends Controller
 {
     public function index(Request $request)
     {
-        // if($request->ajax()){
-        //     $data = $request->all();
-        //     print_r($data);
-        // }
         $biker_id = $request->biker_id;
-        
-        if(Wishlist::where('user_id',Auth::guard('web')->id())->where('biker_id',$biker_id)->exists()){
-            return response()->json(['status'=>'Biker is already added wishlist']);
+
+        if($data= Wishlist::where('user_id',Auth::guard('web')->id())->where('biker_id',$biker_id)->select('id')->first()){
+             Wishlist::where('id',$data->id)->delete();
+            return response()->json(['status'=>'Biker removed from wishlist']);
         }else{
             $wishlist = new Wishlist;
             $wishlist->user_id = Auth::guard('web')->id();

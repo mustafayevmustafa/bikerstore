@@ -17,7 +17,7 @@ class CreateWishlistsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('biker_id');
-            $table->tinyInteger('status')->default(0);
+            //$table->tinyInteger('status')->default(0);
             $table->timestamps();
         });
     }

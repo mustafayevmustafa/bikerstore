@@ -43,7 +43,7 @@ class BikerController extends Controller
             'method'         => null,
             'data'           => new Biker(),
             'markas'         => Marka::get(),
-            'models'         => Pattern::get(),
+            'models'         => Pattern::get(), //Pattern::select('name','id')->where('marka_id',$request->id)->take(100)->get(),
             'categories'     => Category::get(),
             'colors'         => Color::get(),
             'cities'         => City::get(),

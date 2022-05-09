@@ -2,7 +2,7 @@
 @section('content')
     <!-- MAIN WRAPPER -->
 
-    <div class="main-wrapper ad mx-auto mw bg-white px-0 px-md-4">
+    <div class="main-wrapper ad mx-auto mw py-3 bg-white px-0 px-md-4">
         <div class="container">
             <div class="row">
                 <form action="{{ $action }}" method="POST" enctype="multipart/form-data">
@@ -21,7 +21,7 @@
                                     <label for="marka_id" class="text-grey-900 font-xsss">Marka <span
                                                 class="text-red">*</span></label>
                                     <select name="marka_id"
-                                            class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka_id" >
+                                            class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50 markaSelect" id="marka_id" >
                                         <option value="Bütün Markalar" disabled selected>Marka</option>
                                         @foreach($markas as $marka)
                                             <option value="{{$marka->id}}">{{$marka->name}}</option>
@@ -32,9 +32,11 @@
                                     <label for="pattern_id" class="text-grey-900 font-xsss">Model <span
                                                 class="text-red">*</span></label>
                                     <select name="pattern_id"
-                                            class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
-                                        <option value="Bütün Markalar" disabled selected>Model</option>
-                                        @foreach($models as $model)
+                                            class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50 markaName" id="marka">
+                                        {{-- <option value="0" disabled="true" selected="true">Model</option> --}}
+                                        <option value="Butun Markalar" disabled="true" selected="true">Model</option>
+                                    @foreach($models as $model)
+
                                             <option value="{{$model->id}}">{{$model->name}}</option>
                                         @endforeach
                                     </select>
@@ -90,14 +92,7 @@
                                     <div class="d-flex flex-row align-items-center w-50">
                                         <input type="text" name="price" class="form-control me-2 font-xssss text-grey-700 w-75"
                                         >
-{{--                                        <div class="d-flex flex-row align-items-center w-50">--}}
-{{--                                            <select name="price" class="form-select font-xssss text-grey-900"--}}
-{{--                                                    id="price">--}}
-{{--                                                <option value="Bütün Markalar" selected>AZN</option>--}}
-{{--                                                <option value="Baku">RUB</option>--}}
-{{--                                                <option value="Baku">USD</option>--}}
-{{--                                            </select>--}}
-{{--                                        </div>--}}
+
                                     </div>
                                 </div>
 
@@ -146,9 +141,17 @@
                                     </select>
                                 </div>
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
-                                    <label for="year" class="text-grey-900 font-xsss">Mühərrikin a.g <span
+                                    <label for="year" class="text-grey-900 font-xsss">Buraxılış ili <span
                                                 class="text-red">*</span></label>
-                                    <input type="date" name="year" class="form-control text-grey-900 font-xssss w-50" >
+                                    <?php $years = range(2000, strftime("%Y", time())); ?>
+{{--                                    <input type="date" name="year" class="form-control text-grey-900 font-xssss --}}
+{{--                                 w-50" >--}}
+                                    <select name="year" class="form-control text-grey-900 font-xssss w-50" >
+                                        <option>Select Year</option>
+                                        <?php foreach($years as $year) : ?>
+                                        <option value="<?php echo $year; ?>"><?php echo $year; ?></option>
+                                        <?php endforeach; ?>
+                                    </select>
                                 </div>
 
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
@@ -172,73 +175,73 @@
                         </div>
                     </div>
 
-{{--                    <div class="row mt-4">--}}
-{{--                        <div class="col-12 ps-4">--}}
-{{--                            <h2 class="font-xs text-grey-900 my-3">Motosikletin Təchizatı</h2>--}}
-{{--                            <div class="input__container d-flex justify-content-start flex-wrap mb-2 align-items-start">--}}
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
+                     <div class="row mt-4">
+                        <div class="col-12 ps-4">
+                            <h2 class="font-xs text-grey-900 my-3">Motosikletin Təchizatı</h2>
+                            <div class="input__container d-flex justify-content-start flex-wrap mb-2 align-items-start">
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
 
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
 
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-
-
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
-
-{{--                                <div class="form-check me-3 mb-2">--}}
-{{--                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">--}}
-{{--                                    <label class="form-check-label font-xssss" for="flexCheckDefault">--}}
-{{--                                        Default checkbox--}}
-{{--                                    </label>--}}
-{{--                                </div>--}}
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
 
 
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
+
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
+
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
+
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
+
+                                <div class="form-check me-3 mb-2">
+                                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                    <label class="form-check-label font-xssss" for="flexCheckDefault">
+                                        Default checkbox
+                                    </label>
+                                </div>
 
 
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+
+
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row mt-4">
                         <div class="col-12">
@@ -258,7 +261,7 @@
                                 <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                                 <button type="button" class="main__photo custom__button btn font-xsssss posa">Əsas Şəkil</button>
                             </div>
-                           
+
                             <div class="ad__image posr">
                                 <img src="{{asset('front/assets/images/login.jpg')}}" alt="">
                                 <button type="button" class="main__photo custom__button btn font-xsssss posa">Əsas Şəkil</button>
@@ -277,7 +280,7 @@
             @endforeach
           @endif --}}
                             </label>
-                            
+
 
                         </div>
 
@@ -319,4 +322,50 @@
 
 
     <!-- MAIN WRAPPER -->
+@endsection
+@section('js')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        // $(document).ready(function() {
+        //     jQuery('#marka_id').change(function(){
+        //         let marka = $(this).val();
+        //         $.ajax({
+        //             url: {{ url('announcement')}},
+        //             type: 'post',
+        //             data:'marka='+marka+'_token={{csrf_token()}}',
+        //             success:function(result){
+        //                 $('#marka').html(result);
+        //             }
+        //         });
+        //     });
+        // });
+        $(document).ready(function() {
+            $(document).on('change','.markaSelect',function(){
+                //console.log('deyisdi');--}}
+       
+                var marka_id = $(this).val();
+            //console.log(marka_id);--}}
+                var div = $(this).parent();
+                var op = ' ';
+               $.ajax({
+                type: 'get',
+                url: '{!!URL::to('announcement')!!}',
+                data:{'id':marka_id},
+                success: function(data){
+   
+                    op+='<option value"" selected disabled>chose model</option>';
+                    for (var i = 0; i < data.length; i++) {
+                    op+='<option value="'+data[i].id+'">'+data[i].markaName+'</option>';
+                            
+                       }
+                    div.find('.markaName').html(' ');
+                    div.find('.markaName').append(op);
+                   },
+                    error: function(data){
+                        
+                   }
+                });
+            });
+        });
+    </script>
 @endsection

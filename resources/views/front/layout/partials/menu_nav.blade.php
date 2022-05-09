@@ -1,6 +1,6 @@
  <div class="menu__overlay">
         <div class="menu__logo d-flex justify-content-center align-items-center posr w-100 shadow-sm">
-            <img src="./assets/images/logo.png" height="80" alt="">
+            <img src="{{asset('front/assets/images/logo.png')}}" height="80" alt="">
             <span class="close__button" id="menu__mobile__close"><i class='bx bx-x text-current font-lg'></i></span>
         </div>
         <div class="menu__wrapper pb-2">

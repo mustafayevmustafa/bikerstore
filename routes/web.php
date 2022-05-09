@@ -62,9 +62,9 @@ Route::group(['prefix'=>'admin'],function(){
 //Route::get('/', [HomepageController::class, 'index'])->name('front.index');
 //Route::post('/biker/post', [AnnouncementController::class, 'save'])->name('announcement.post');
 
-    Route::get('/biker-list',[SearchController::class,'index']);
+    Route::get('/biker-list',[SearchController::class,'index'])->name('index.search');
     Route::post('/search',[SearchController::class,'search'])->name('search');
-     Route::post('/marka/search',[SearchController::class,'markaSearch'])->name('marka.search');
+    Route::get('/filter',[SearchController::class,'markaSearch'])->name('marka.search');
 
     Route::get('/seherler/{id}',[CitiesController::class,'index']);
     Route::get('/ban/{id}',[CitiesController::class,'ban']);
@@ -73,8 +73,8 @@ Route::group(['prefix'=>'admin'],function(){
     Route::get('/detail/{id}', [HomepageController::class, 'detail'])->name('detail');
     Route::get('/profile', [ProfileController::class, 'index'])->name('front.profile')->middleware('isProfile');
 
-    Route::get('/add-wishlist', [WishlistController::class, 'index'])->name('add-wishlist')->middleware('isProfile');
-    Route::post('/add-wishlist', [WishlistController::class, 'index'])->name('add-wishlist');
+    Route::get('/favori-et', [WishlistController::class, 'index'])->name('add-wishlist')->middleware('isProfile');
+    Route::post('/favori-et', [WishlistController::class, 'index']);
 
     Route::get('/profile-hesab-duzelis', [ProfileController::class, 'hesab'])->name('front.hesab')->middleware('isProfile');
     Route::post('/profile-hesab',[ProfileController::class,'profilUpdate'])->name('profil.update');

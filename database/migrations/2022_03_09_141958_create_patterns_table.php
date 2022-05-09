@@ -15,6 +15,7 @@ class CreatePatternsTable extends Migration
     {
         Schema::create('patterns', function (Blueprint $table) {
             $table->id();
+            $table->integer('marka_id')->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
         });

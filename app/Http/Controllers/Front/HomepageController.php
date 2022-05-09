@@ -42,7 +42,14 @@ class HomepageController extends Controller
 
         $biker = Biker::find($id);
         $reklam = Reklam::first();
-        return view('front.detail',compact('biker','reklam'));
+        $cities = City::get();
+        $markas = Marka::get();
+        $patterns = Pattern::get();
+        //$reklam = Reklam::first();
+        //elanda sadece bir dene shekil var hee?aha coxlu sekil etmemisik.hee dogrudur 
+        //shekili ederem sonra ederik slideri.yada siz edenden sinra ))sen indi indexe bax bir dene
+        $bans = Ban::first();
+        return view('front.detail',compact('biker','reklam','cities','markas','patterns','bans'));
     }
 
     public function listing()

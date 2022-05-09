@@ -19,7 +19,7 @@ class SearchController extends Controller
     public function index()
     {
         $biker = Biker::with('marka')->get();
-        
+
         $bikers = Biker::select('description')->get();
         //dd($biker);
         $data = [];
@@ -47,8 +47,8 @@ class SearchController extends Controller
     public function search(Request $request) {
         //dd('OK');
         //$query = $request->query;
-        //$id = $request->id; 
-       
+        //$id = $request->id;
+
         $bikers =Biker::join('markas','bikers.marka_id','=','markas.id')
         ->where('markas.name','LIKE',$request->marka_id)
         ->select('bikers.*','bikers.image as bikerimage','markas.name',)
@@ -58,7 +58,7 @@ class SearchController extends Controller
         //Biker modelini ishletdik deye uje shekili birinci tableden goturur ama istesek her iki shekilide ishledek ondak
         //men bu sorgunu asagida etmisdim..bele yox ama oxsar..burda da yoxladim ama selectden sonra yazmisdim..eyni seyi edirdi
       // dd($bikers);//bikerimage //onu o edib/bura qederi okaydir?aha bide shekil meselesi
-        //senin sorgun bunu getirirdi ve duz getirir/sadece bunu elave etmek lazimdirki sorgu gonderende namenin adini axtarda 
+        //senin sorgun bunu getirirdi ve duz getirir/sadece bunu elave etmek lazimdirki sorgu gonderende namenin adini axtarda
         //bilmirem..ama bikerde name sutunu yoxdu..gelen sekil de markanin seklidi
         //sen burda join edende iki tablede reshkil sutunu eynidir deye marka bikerin imageini usteleyir ve biri gorunur
         //$bikers = Biker::get();
@@ -89,13 +89,37 @@ class SearchController extends Controller
 
     }
 
-    public function markaSearch(Request $request)
+
+
+    public function markaSearch(Request $request){
+
+        $bikers = Biker::filter()
+            ->join('cities','bikers.city_id','=','cities.id')
+            ->select('bikers.*','bikers.image as bikerimage','cities.name',)
+            ->get();
+        $cities = City::get();
+        $markas = Marka::get();
+        $patterns = Pattern::get();
+        $reklam = Reklam::first();
+        $bans = Ban::first();
+
+
+        //return dd($result);
+        return view('front.search.index',compact('cities','markas','patterns','bikers','reklam','bans'));
+
+
+    }
+
+
+
+
+    public function oldmarkaSearch(Request $request)
     {
         //dd('OK');
         //$marka_name = $request->marka;
-        
+
         //return dd($request->marka);
-        
+
         if($request->city){
             //return dd($request->city);
             $bikers =Biker::join('cities','bikers.city_id','=','cities.id')
@@ -109,8 +133,8 @@ class SearchController extends Controller
         if($request->barter != null ){
             $bikers = Biker::where('barter',1)->select('bikers.*','bikers.image as bikerimage')->get();
         }
-        
-       
+
+
         if($request->marka && $request->city){
             $bikers =Biker::join('markas','bikers.marka_id','=','markas.id')
             ->join('cities','bikers.city_id','=','cities.id')
@@ -169,8 +193,8 @@ class SearchController extends Controller
         $patterns = Pattern::get();
         $reklam = Reklam::first();
         $bans = Ban::first();
-        
-        
+
+
         //return dd($result);
         return view('front.search.index',compact('cities','markas','patterns','bikers','reklam','bans'));
     }
