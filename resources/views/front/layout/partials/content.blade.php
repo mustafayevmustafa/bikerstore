@@ -1,60 +1,5 @@
-@extends('front.layout.master')
-@section('content')
-<!-- MAIN WRAPPER -->
-
-    <div class="main-wrapper mx-auto mw bg-white">
-        @if(session('success'))
-        <div class="alert alert-success">
-            {{session('success')}}
-        </div>
-        @endif
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 text-white">
-                    <div class="row px-2">
-                        <div class="bottom__menu mb-3 border py-2 px-4 shadow-xs rounded">
-                            <div class="row my-2">
-                                @foreach($bans as $ban)
-                                <a href="{{url('/ban',$ban)}}" class="col-6 text-grey-900 d-flex justify-content-center">
-                                    <div
-                                        class="bottom__menu__card p-3 rounded d-flex flex-column justify-content-center align-items-center">
-                                        <img class="menu__icon" width="25" height="25"
-                                            src="{{asset("storage/{$ban->getAttribute('image')}")}}">
-                                        <span class="font-xsss">{{$ban->name}}</span>
-                                    </div>
-                                </a>
-                                @endforeach
-                            </div>
-
-                         
-
-                         
-                        </div>
-                        <div class="mid__menu border shadow-xs pt-3 mb-3">
-                            <ul class="ps-3">
-                                @foreach($markas as $marka)
-                                <li class="lh-18"><a href="" class="font-xsss text-grey-900"><img class="menu__icon"
-                                            src="{{asset("storage/{$marka->getAttribute('image')}")}}"> {{$marka->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-
-                        <h4 class="text-white bg-current-low mb-0 py-1 rounded-top">Şəhərlər</h4>
-                        <div class="mid__menu city__names border shadow-xs mb-2">
-                            <ul class="ps-3 pt-2">
-                                @foreach($cities as $city)
-                                    <li class="lh-18"><a href="{{url('/seherler',$city)}}" class="font-xsss text-grey-900">{{$city->name}}</a></li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-9 border py-3">
-                   @include('front.layout.partials.filter')
-                    <div class="card__wrapper">
-                       @foreach($bikers as $biker)
+  <div class="card__wrapper">
+                        @foreach($bikers as $biker)
                         <div class="custom__card biker_data border shadow-sm ovh d-flex flex-column bg-white posr pb-2" id="myTable">
                           
                           <div class="wishlist-content">
@@ -122,13 +67,4 @@
                         
                     </div>
                     @endforeach
-                    </div>
                 </div>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- MAIN WRAPPER -->
-    @endsection
-    

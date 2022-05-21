@@ -24,7 +24,7 @@
                                             class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50 markaSelect" id="marka_id" >
                                         <option value="Bütün Markalar" disabled selected>Marka</option>
                                         @foreach($markas as $marka)
-                                            <option value="{{$marka->id}}">{{$marka->name}}</option>
+                                            <option value="{{$marka->id}}" @if($marka['name']) selected @endif>{{$marka->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -37,7 +37,7 @@
                                         <option value="Butun Markalar" disabled="true" selected="true">Model</option>
                                     @foreach($models as $model)
 
-                                            <option value="{{$model->id}}">{{$model->name}}</option>
+                                            <option value="{{$model->id}}" @if($model['name']) selected @endif>{{$model->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -49,7 +49,7 @@
                                             class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
                                         <option value="Bütün Markalar" disabled selected>Model</option>
                                         @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            <option value="{{$category->id}}" @if($category['name']) selected @endif>{{$category->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -62,7 +62,7 @@
                                         <div class="d-flex flex-row align-items-center w-50">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="radio" name="flexRadioDefault"
-                                                       id="flexRadioDefault1" >
+                                                       id="flexRadioDefault1" value="{{$bikers->km}}">
                                                 <label class="form-check-label font-xssss" for="flexRadioDefault1">
                                                     Km
                                                 </label>
@@ -80,7 +80,7 @@
                                             class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
                                         <option value="Bütün Markalar" disabled selected>Rəng</option>
                                         @foreach($colors as $color)
-                                            <option value="{{$color->id}}">{{$color->name}}</option>
+                                            <option value="{{$color->id}}" @if($color['name']) selected @endif>{{$color->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -90,17 +90,17 @@
                                     <label for="marka" class="text-grey-900 font-xsss">Qiymət <span
                                                 class="text-red">*</span></label>
                                     <div class="d-flex flex-row align-items-center w-50">
-                                        <input type="text" name="price" class="form-control me-2 font-xssss text-grey-700 w-75"
+                                        <input value="{{$bikers->price}}" type="text" name="price" class="form-control me-2 font-xssss text-grey-700 w-75"
                                         >
 
                                     </div>
                                 </div>
 
                                 <div class="input__container d-flex justify-content-end mb-3 mt-2 align-items-center">
-                                    <input type="checkbox" name="barter" class="form-check-input me-2 mt-0">
+                                    <input type="checkbox" @if($bikers->barter ==1) checked @endif name="barter" class="form-check-input me-2 mt-0">
                                     <span class="font-xssss text-grey-900">Kreditdədir</span>
 
-                                    <input type="checkbox"  name="credit" class="form-check-input ms-3 me-2 mt-0">
+                                    <input type="checkbox" @if($bikers->credit ==1) checked @endif  name="credit" class="form-check-input ms-3 me-2 mt-0">
                                     <span class="font-xssss text-grey-900">Barter Mümkündür</span>
                                 </div>
                             </div>
@@ -114,7 +114,7 @@
                                             class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
                                         <option value="Bütün Markalar" disabled selected>Şəhərlər</option>
                                         @foreach($cities as $city)
-                                            <option value="{{$city->id}}">{{$city->name}}</option>
+                                            <option value="{{$city->id}}" @if($city['name']) selected @endif>{{$city->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -125,7 +125,7 @@
                                             class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="ban">
                                         <option value="Bütün Markalar" disabled selected>Ban Növləri</option>
                                         @foreach($bans as $ban)
-                                            <option value="{{$ban->id}}">{{$ban->name}}</option>
+                                            <option value="{{$ban->id}}" @if($ban['name']) selected @endif>{{$ban->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -136,7 +136,7 @@
                                             class="form-select mb-2 ps-2 pe-5 font-xssss text-grey-900 w-50" id="marka">
                                         <option value="Bütün Markalar" disabled selected>Yanacaq Növü Seçin</option>
                                         @foreach($fuels as $fuel)
-                                            <option value="{{$fuel->id}}">{{$fuel->name}}</option>
+                                            <option value="{{$fuel->id}}" @if($fuel['name']) selected @endif>{{$fuel->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -157,7 +157,7 @@
                                 <div class="input__container d-flex justify-content-between mb-2 align-items-center">
                                     <label for="marka" class="text-grey-900 font-xsss">Mühərrikin a.g <span
                                                 class="text-red">*</span></label>
-                                    <input type="number" class="form-control text-grey-900 font-xssss w-50" >
+                                    <input type="number" value="" class="form-control text-grey-900 font-xssss w-50" >
                                 </div>
                             </div>
                         </div>
@@ -169,7 +169,7 @@
                                 <div class="form-floating w-100">
                                     <textarea name="description" class="form-control font-xssss pt-2 text-grey-900"
                                               style="height: 150px !important; resize: none;"
-                                              placeholder="Leave a comment here"></textarea>
+                                              placeholder="Leave a comment here">{{$bikers->description}}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -342,7 +342,7 @@
         $(document).ready(function() {
             $(document).on('change','.markaSelect',function(){
                 //console.log('deyisdi');--}}
-       
+
                 var marka_id = $(this).val();
             //console.log(marka_id);--}}
                 var div = $(this).parent();
@@ -352,17 +352,17 @@
                 url: '{!!URL::to('announcement')!!}',
                 data:{'id':marka_id},
                 success: function(data){
-   
+
                     op+='<option value"" selected disabled>chose model</option>';
                     for (var i = 0; i < data.length; i++) {
                     op+='<option value="'+data[i].id+'">'+data[i].markaName+'</option>';
-                            
+
                        }
                     div.find('.markaName').html(' ');
                     div.find('.markaName').append(op);
                    },
                     error: function(data){
-                        
+
                    }
                 });
             });

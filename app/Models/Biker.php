@@ -10,8 +10,9 @@ use function PHPUnit\Framework\isEmpty;
 class Biker extends Model
 {
     use HasFactory;
-
+    protected $table = 'bikers';
     protected $fillable = [
+        'id',
         'fuel_id',
         'description',
         'fuel_id',

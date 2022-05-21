@@ -27,10 +27,10 @@
         <div class="row header__left">
             <a href="/"><img src="{{asset('front/assets/images/logo.png')}}" height="80" alt=""></a>
         </div>
-       
-        @include('front\layout\partials\search')
-    
-        
+
+        @include('front.layout.partials.search')
+
+
         <div class="row header__right">
             <div class="container d-flex align-items-center">
                  @if (Route::has('login'))
@@ -65,7 +65,7 @@
 <script>
     function search() {
     var availableTags = [
-      
+
     ];
     $.ajax({
         method: 'GET',
@@ -83,7 +83,7 @@
 }
 
   </script>
-       
+
 </script>
 
 

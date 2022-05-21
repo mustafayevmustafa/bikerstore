@@ -34,14 +34,18 @@
                                     <div
                                         class="row d-flex flex-column justify-content-md-center h-100 align-items-center align-items-md-start">
                                         <button class="custom__button px-4 w-auto text-center mx-md-auto">Aktivləşdir</button>
+                                        <a href="{{route('announcement.edit',$biker->id)}}">
                                         <button
                                             class="text-grey-500 d-flex align-items-center justify-content-center justify-content-md-start border-none bg-none text-center mx-md-auto w-auto px-0 my-3">
                                             <i class='bx bx-edit me-1 font-sm'></i>Düzəliş et
                                         </button>
-                                        <button
-                                            class="text-grey-500 d-flex align-items-center justify-content-center justify-content-md-start border-none bg-none text-center mx-md-auto w-auto px-0">
-                                            <i class='bx bx-x font-xl'></i>Sil
+                                        </a>
+                                        <form style="display:inline-block" method="post" action="{{route('announcement.destroy',$biker->id)}}">
+                                        @method('delete') @csrf
+                                        <button type="submit" class="text-grey-500 d-flex align-items-center justify-content-center justify-content-md-start border-none bg-none text-center mx-md-auto w-auto px-0">
+                                           <i class='bx bx-x font-xl'></i>Sil
                                         </button>
+                                    </form>
                                     </div>
                                 </div>
                             </div>

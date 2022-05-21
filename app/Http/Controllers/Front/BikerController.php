@@ -26,7 +26,7 @@ class BikerController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -65,7 +65,7 @@ class BikerController extends Controller
             'colors'         => Color::get(),
             'cities'         => City::get(),
             'fuels'          => Fuel::get(),
-        ]); 
+        ]);
         */
     }
 
@@ -97,9 +97,9 @@ class BikerController extends Controller
                 // $generators = Biker::create($validated);
             //}
          //}
-        
+
          //$generators = Biker::create($validated);
-        
+
                 $validated = $request->validated();
         $validated['credit'] = $request->has('credit');
         $validated['barter'] = $request->has('barter');
@@ -113,7 +113,7 @@ class BikerController extends Controller
         $generators = Biker::create($validated);
 
        // return redirect()->route('announcement.create')->with('success', "Promo Code Generation created successfully!");
-        
+
 
         return redirect()->route('announcement.create')->with('success', "Promo Code Generation created successfully!");
     }
@@ -135,9 +135,27 @@ class BikerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit( Biker $bikers)
     {
-        //
+        //return var_dump($bikers);
+        // $bikers = Biker::first()-toArray();
+        // echo $bikers['id']; die;
+        return view('front.biker.edit')->with([
+            'bikers' => Biker::first(),
+            'action' => route('announcement.edit',$bikers),
+            'method' => 'PUT',
+            'data'   => $bikers,
+            'markas'         => Marka::get(),
+            'models'         => Pattern::get(), //Pattern::select('name','id')->where('marka_id',$request->id)->take(100)->get(),
+            'categories'     => Category::get(),
+            'colors'         => Color::get(),
+            'cities'         => City::get(),
+            'fuels'          => Fuel::get(),
+            'reklam'         => Reklam::first(),
+            'bans'           => Ban::get(),
+            
+        ]);
+
     }
 
     /**

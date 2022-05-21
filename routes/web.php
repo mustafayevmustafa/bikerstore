@@ -22,6 +22,7 @@ use App\Http\Controllers\Front\SocialController;
 use App\Http\Controllers\Front\ProfileController;
 use App\Http\Controllers\Front\SearchController;
 use App\Http\Controllers\Front\CitiesController;
+use App\Http\Controllers\Front\MarkasController;
 use App\Http\Controllers\Front\WishlistController;
 //use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -68,6 +69,7 @@ Route::group(['prefix'=>'admin'],function(){
 
     Route::get('/seherler/{id}',[CitiesController::class,'index']);
     Route::get('/ban/{id}',[CitiesController::class,'ban']);
+    Route::get('/markalar/{id}',[MarkasController::class,'index']);
 
     Route::get('/', [HomepageController::class, 'index'])->name('front.index');
     Route::get('/detail/{id}', [HomepageController::class, 'detail'])->name('detail');
@@ -101,6 +103,21 @@ Route::get('/logout',[HomepageController::class,'logout'])->name('front.logout')
 
 Route::get('/linkstorage',function(){
    Artisan::call('storage:link');
+});
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
+
+Route::get('/clear', function() {
+
+   Artisan::call('cache:clear');
+   Artisan::call('config:clear');
+   Artisan::call('config:cache');
+   Artisan::call('view:clear');
+
+   return "Cleared!";
+
 });
 
 Route::get('/dashboard', function () {

@@ -24,10 +24,10 @@ class CitiesController extends Controller
         //return $cities->name;
         $patterns = Pattern::get();
         $bikers = Biker::where('city_id',$id)->get();
-        
+        $bans  = Ban::get();
         $reklam = Reklam::first();
         //$city = DB::table('cities')->join('bikers', 'cities.id', '=', 'bikers.city_id');
-        return view('front.city.index',compact('cities','markas','patterns','bikers','reklam'));
+        return view('front.index',compact('cities','markas','patterns','bikers','reklam','bans'));
         /*
          return view('front.city.index')->with([
             'markas'         => Marka::get(),
@@ -56,6 +56,6 @@ class CitiesController extends Controller
         
         $reklam = Reklam::first();
         //$city = DB::table('cities')->join('bikers', 'cities.id', '=', 'bikers.city_id');
-        return view('front.ban.index',compact('cities','markas','patterns','bikers','reklam','bans'));
+        return view('front.index',compact('cities','markas','patterns','bikers','reklam','bans'));
     }
 }
